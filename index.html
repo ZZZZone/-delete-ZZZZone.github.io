@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,9 +96,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -143,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -322,26 +322,15 @@
 
       
         
-          
-            <h2>待解决问题</h2>
-<p>代码高亮， 字体问题。<br>
-首页预览行数控制问题。<br>
-配置第三方服务。<br>
-移动端如何显示侧栏的问题。</p>
-<h2>待解决疑问</h2>
-<p>每一次更新博客是否都需要重新执行<code>clean</code>, <code>generate</code>, <code>deploy</code>命令， 是否有更简单的方法。</p>
-<h2>已解决问题</h2>
-<h3>侧栏链接图标配不上去问题</h3>
-<p>    教程中说的是 在主题配置文件中的<code>social_icons</code>中添加网站的名称, 但是试了很多次都不成功.<br>
-    解决办法: 发现在<code>social</code>也就是贴链接的位置 后面默认会有两个竖杠<code>||</code> , 正确做法是在<code>||</code>后面粘贴图片的名字.</p>
-<p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line"><span class="attr">  GitHub:</span> <span class="attr">https://github.com/ZZZZone</span> <span class="string">||</span> <span class="string">github</span></span><br><span class="line">  <span class="string">微博:</span> <span class="attr">http://weibo.com/_ZZZZone</span> <span class="string">||</span> <span class="string">weibo</span></span><br><span class="line">  <span class="string">知乎:</span> <span class="attr">http://www.zhihu.com/people/zzzzone-87</span>  <span class="string">||</span> <span class="string">bolt</span></span><br><span class="line"><span class="attr">  codeforces:</span> <span class="attr">http://codeforces.com/profile/ZZZZone</span> <span class="string">||</span> <span class="string">fort-awesome</span></span><br></pre></td></tr></table></figure></p>
-<h3>mathjax渲染问题</h3>
-<p>    网上找了很多方法, 不停地<code>uninstall</code>,<code>install</code>, 已经忘记了hexo默认给的是什么软件渲染的了.<br>
-    最后使用的是<code>markdown-it</code>, 虽然在<code>next</code>主题的TOC显示上面会有一些问题, 牺牲一下吧.  毕竟写题解的时候公式很重要。 暂时先使用这种方法。
-<a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener">markdown-it</a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install markdown-it --save</span><br></pre></td></tr></table></figure></p>
-
-          
+          <h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><p>代码高亮， 字体问题。<br><del>首页预览行数控制问题。</del><br>配置第三方服务。<br>移动端如何显示侧栏的问题。</p>
+<h2 id="待解决疑问"><a href="#待解决疑问" class="headerlink" title="待解决疑问"></a>待解决疑问</h2><p>每一次更新博客是否都需要重新执行<code>clean</code>, <code>generate</code>, <code>deploy</code>命令， 是否有更简单的方法。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/11/搭建博客遇到的坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -458,23 +447,16 @@
 
       
         
-          
-            <h3>题目链接</h3>
-<p><a href="https://arc086.contest.atcoder.jp/tasks/arc086_b" target="_blank" rel="noopener">Non-decreasing</a></p>
-<h3>题目大意</h3>
-<p>给一个长度为$n\ (1 \leq n \leq 50)$的序列。 每次可以选择两个数$a_x, a_y$, 把$a_x$加到$a_y$上。最终使得a序列不递降， 题目保证$0 ~ 2n$次有解。 输出操作个数以及操作方案。</p>
+          <h3 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h3><p><a href="https://arc086.contest.atcoder.jp/tasks/arc086_b" target="_blank" rel="noopener">Non-decreasing</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给一个长度为$n\ (1 \leq n \leq 50)$的序列。 每次可以选择两个数$a_x, a_y$, 把$a_x$加到$a_y$上。最终使得a序列不递降， 题目保证0~2n次有解。 输出操作个数以及操作方案。</p>
 <p>$A_i + B_i = \frac{\sqrt{a}}{b}$</p>
-<p>$test markdown $</p>
-<h3>数据范围</h3>
-<p>$1 \leq n \leq 50$
-$-10^6 \leq a_i \leq 10^6$</p>
-<h3>解题思路</h3>
-<p>这道题比赛的时候没想出来。C题5分钟写完就挂机了。。 比赛完了之后看了别的代码瞬间理解。
-其实如果这个题$a_i$全是正数或者全是负数, 应该都能想到从左往右或者从右到左累加一次, 即操作了n-1次, 就符合条件了.但是现在有正有负, 又不难发现, 只需要记录绝对值最大的数, 把这n个数都加上这个绝对值最大的数, 他们就符号统一了, 这个操作为n次, 所以题目才能保证在 2n次肯定有解.</p>
-<h3>AC代码</h3>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********************************************</span></span><br><span class="line"><span class="comment"> *Author*        :ZZZZone</span></span><br><span class="line"><span class="comment"> *Created Time*  : 一 12/11 20:46:20 2017</span></span><br><span class="line"><span class="comment"> * Ended  Time*  : 一 12/11 21:04:29 2017</span></span><br><span class="line"><span class="comment">*********************************************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">55</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">abs</span>(a[i]) &gt;= <span class="built_in">abs</span>(a[p])) p = i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="number">2</span> * n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, p, i);</span><br><span class="line">	<span class="keyword">if</span>(a[p] &gt; <span class="number">0</span>) <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, i + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">for</span>(<span class="keyword">int</span> i = n; i &gt; <span class="number">1</span>; i--) <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, i - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/09/我的第一个github博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -593,18 +575,13 @@ $-10^6 \leq a_i \leq 10^6$</p>
         
           
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2>Quick Start</h2>
-<h3>Create a new post</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3>Run server</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3>Generate static files</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3>Deploy to remote sites</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
@@ -758,6 +735,11 @@ $-10^6 \leq a_i \leq 10^6$</p>
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -787,7 +769,7 @@ $-10^6 \leq a_i \leq 10^6$</p>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -804,11 +786,6 @@ $-10^6 \leq a_i \leq 10^6$</p>
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
