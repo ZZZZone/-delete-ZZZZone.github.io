@@ -98,7 +98,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":20,"b2t":true,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":20,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -305,6 +305,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  493
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -322,7 +353,8 @@
 
       
         
-          <h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><p>代码高亮， 字体问题。<br><del>首页预览行数控制问题。</del><br>配置第三方服务。<br>移动端如何显示侧栏的问题。</p>
+          <p>折腾了小半天的配置， 我觉得配置之前先去浏览一下配置文件比较好， 因为我发现有许多很麻烦的配置其实主题在配置中都已经给写好了  只需要true 一下就可以了最多需要<code>npm install</code>一下， 不需要再去修改文件什么的了。</p>
+<h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><p>代码高亮， 字体问题。<br><del>首页预览行数控制问题。</del><br>配置第三方服务。<br>移动端如何显示侧栏的问题。</p>
 <h2 id="待解决疑问"><a href="#待解决疑问" class="headerlink" title="待解决疑问"></a>待解决疑问</h2><p>每一次更新博客是否都需要重新执行<code>clean</code>, <code>generate</code>, <code>deploy</code>命令， 是否有更简单的方法。</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -429,6 +461,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  416
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
           
 
           
@@ -555,6 +618,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  78
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -713,9 +807,21 @@
                   </span>
                 
                   <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/ZZZZone" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-bullhorn"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
                     <a href="http://codeforces.com/profile/ZZZZone" target="_blank" title="codeforces">
                       
-                        <i class="fa fa-fw fa-fort-awesome"></i>codeforces</a>
+                        <i class="fa fa-fw fa-graduation-cap"></i>codeforces</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:871532895@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
                 
             </div>
@@ -738,6 +844,8 @@
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
           
+            <span id="scrollpercent"><span>0</span>%</span>
+          
         </div>
       
 
@@ -751,14 +859,37 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ZZZZone</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">987</span>
+  
 </div>
+
 
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
