@@ -2,12 +2,12 @@
 <search>
   <entry>
     <title><![CDATA[搭建博客遇到的坑]]></title>
-    <url>%2F2018%2F03%2F11%2F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%2F</url>
+    <url>%2F2018%2F03%2F11%2Fundefined%2F</url>
     <content type="text"><![CDATA[折腾了小半天的配置， 我觉得配置之前先去浏览一下配置文件比较好， 因为我发现有许多很麻烦的配置其实主题在配置中都已经给写好了 只需要true 一下就可以了最多需要npm install一下， 可以省很多事。 待解决问题代码高亮， 字体问题。首页预览行数控制问题。配置第三方服务。 （评论， 分享之类的）移动端如何显示侧栏的问题。是否能把csdn的博客迁过来。about页面的一些美化让百度google能够搜索想添加网易云音乐每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点 待解决疑问每一次更新博客是否都需要重新执行clean, generate, deploy命令， 是否有更简单的方法。 已解决问题侧栏链接图标配不上去问题&#160; &#160; 教程中说的是 在主题配置文件中的social_icons中添加网站的名称, 但是试了很多次都不成功.&#160; &#160; 解决办法: 发现在social也就是贴链接的位置 后面默认会有两个竖杠|| , 正确做法是在||后面粘贴图片的名字. 12345social: GitHub: https://github.com/ZZZZone || github 微博: http://weibo.com/_ZZZZone || weibo 知乎: http://www.zhihu.com/people/zzzzone-87 || bolt codeforces: http://codeforces.com/profile/ZZZZone || fort-awesome mathjax渲染问题更新， 请不要使用删除线中的方法 &#160; &#160; 网上找了很多方法, 不停地uninstall,install, 已经忘记了hexo默认给的是什么软件渲染的了.&#160; &#160; 最后使用的是markdown-it, 虽然在next主题的TOC显示上面会有一些问题, 牺牲一下吧. 毕竟写题解的时候公式很重要。 暂时先使用这种方法。markdown-it &#160; &#160; 之前一直使用的是markdown-it, 问题就是TOC有问题并且在主页无法使用&lt;!-- more --&gt;来设置阅读全文.&#160; &#160; 解决方法: 经过一番搜索, 发现了另一个软件, 叫hexo-renderer-kramed，完美解决了这个问题。参考博客: 林肯先生的blog。 具体做法这篇博客已经详细介绍了。 评论插件&#160; &#160; 我用的是gitment插件 next主题中已经有相应的gitment配置了. 先OAuth Application注册一下， 第二个和第四个的URL都填自己的域名。 修改主题配置文件中的gitment部分配置。 我还没有按照要求去修改css什么的， 不知道是否能够正常使用， 目前还在测试阶段。 不过本地调试看起来没什么问题。]]></content>
   </entry>
   <entry>
     <title><![CDATA[测试一下一下博客， 先贴一个题解。]]></title>
-    <url>%2F2018%2F03%2F09%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAgithub%E5%8D%9A%E5%AE%A2%2F</url>
+    <url>%2F2018%2F03%2F09%2Fundefined%2F</url>
     <content type="text"><![CDATA[题目链接Non-decreasing 题目大意给一个长度为$n\ (1 \leq n \leq 50)$的序列。 每次可以选择两个数$a_x, a_y$, 把$a_x$加到$a_y$上。最终使得a序列不递降， 题目保证0~2n次有解。 输出操作个数以及操作方案。 $A_i + B_i = \frac{\sqrt{a}}{b}$ $test markdown $ 数据范围$1 \leq n \leq 50$$-10^6 \leq a_i \leq 10^6$ 解题思路这道题比赛的时候没想出来。C题5分钟写完就挂机了。。 比赛完了之后看了别的代码瞬间理解。其实如果这个题$a_i$全是正数或者全是负数, 应该都能想到从左往右或者从右到左累加一次, 即操作了n-1次, 就符合条件了.但是现在有正有负, 又不难发现, 只需要记录绝对值最大的数, 把这n个数都加上这个绝对值最大的数, 他们就符号统一了, 这个操作为n次, 所以题目才能保证在 2n次肯定有解. AC代码1234567891011121314151617181920212223242526272829/******************************************** *Author* :ZZZZone *Created Time* : 一 12/11 20:46:20 2017 * Ended Time* : 一 12/11 21:04:29 2017*********************************************/#include&lt;cstdio&gt;#include&lt;cstring&gt;#include&lt;algorithm&gt;#include&lt;cstdlib&gt;#include&lt;cmath&gt;#include&lt;iostream&gt;using namespace std;int n;int a[55];int main()&#123; scanf("%d", &amp;n); int p = 0; for(int i = 1; i &lt;= n; i++)&#123; scanf("%d", &amp;a[i]); if(abs(a[i]) &gt;= abs(a[p])) p = i; &#125; printf("%d\n", 2 * n - 1); for(int i = 1; i &lt;= n; i++) printf("%d %d\n", p, i); if(a[p] &gt; 0) for(int i = 1; i &lt; n; i++) printf("%d %d\n", i, i + 1); else for(int i = n; i &gt; 1; i--) printf("%d %d\n", i, i - 1); return 0;&#125;]]></content>
       <tags>
         <tag>题解</tag>
@@ -16,7 +16,7 @@
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F03%2F09%2Fhello-world%2F</url>
+    <url>%2F2018%2F03%2F09%2Fundefined%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
