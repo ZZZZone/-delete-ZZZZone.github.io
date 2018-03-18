@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,14 +84,13 @@
 
 
 <meta name="description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （百度了一下， 可行)about页面的一些美化让百度google能够搜索  （好难啊， 感觉好难搞定）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶  待解决疑问 每一次更新博客是否都需要重新执行clean, generate, deploy命令， 是否有更简单的方">
-<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建博客遇到的坑">
 <meta property="og:url" content="http://yoursite.com/2018/03/11/搭建博客遇到的坑/index.html">
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （百度了一下， 可行)about页面的一些美化让百度google能够搜索  （好难啊， 感觉好难搞定）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶  待解决疑问 每一次更新博客是否都需要重新执行clean, generate, deploy命令， 是否有更简单的方">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T16:35:30.000Z">
+<meta property="og:updated_time" content="2018-03-18T03:08:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的坑">
 <meta name="twitter:description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （百度了一下， 可行)about页面的一些美化让百度google能够搜索  （好难啊， 感觉好难搞定）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶  待解决疑问 每一次更新博客是否都需要重新执行clean, generate, deploy命令， 是否有更简单的方">
@@ -346,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-14T00:35:30+08:00">
-                2018-03-14
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-18T11:08:39+08:00">
+                2018-03-18
               </time>
             
           </span>
@@ -355,6 +354,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/11/搭建博客遇到的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/11/搭建博客遇到的坑/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -451,12 +460,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
-        </div>
-      
 
       
       
@@ -505,9 +508,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDc2OC8xMTMwNQ"></div>
     </div>
-
   
 
 
@@ -573,7 +574,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -864,26 +865,37 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'DWDLFtbp96Q5Exea8g4kVvWM-gzGzoHsz',
+        appKey: 'a1S7tPyacAFm9MhSj1i1Rs2p',
+        placeholder: 'Just go go',
+        avatar:'/images/avatar.png',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
