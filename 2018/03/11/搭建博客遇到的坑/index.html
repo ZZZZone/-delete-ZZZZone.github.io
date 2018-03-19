@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （不打算搬了， 分开写不同的东西）about页面的一些美化让百度google能够搜索    （谷歌已经解决， 百度貌似被github屏蔽了）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶    已解决问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-19T07:27:53.000Z">
+<meta property="og:updated_time" content="2018-03-19T08:36:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的坑">
 <meta name="twitter:description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （不打算搬了， 分开写不同的东西）about页面的一些美化让百度google能够搜索    （谷歌已经解决， 百度貌似被github屏蔽了）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶    已解决问题">
@@ -348,7 +348,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-19T15:27:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-19T16:36:54+08:00">
                 2018-03-19
               </time>
             
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,219
+                  1,232
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -451,6 +451,7 @@
 <p>之后只需要在文章的front-matter中添加<code>top: ture</code>就可以将博文置顶了。<br>后来我又发现， 使用<code>top: 数值</code> 会按数值降序置顶排序。</p>
 <p>next主题支持在front-matter中添加<code>sticky: true</code>来显示置顶标志（一个小Pin）。</p>
 <h3 id="将博客部署到coding-上"><a href="#将博客部署到coding-上" class="headerlink" title="将博客部署到coding 上"></a>将博客部署到coding 上</h3><p>参考博客<a href="https://www.jianshu.com/p/934d4b501b18" target="_blank" rel="noopener">Hexo博客部署到GitHub和Coding</a><br>我部署到coding上主要是为了解决百度无法爬去github。<br>首先是在coding上注册账号， 然后创建一个工程， <strong>工程名称和你的用户名一样， 避免css之后渲染出问题</strong>。<br>给coding配置ssh秘钥。 在终端中执行<code>ssh -T git@git.coding.net</code> 检验是否配置成功。<br>然后在站点的配置文件 <code>_config.yml</code> 中添加coding的ssh路径. 仿照github中的方法配置。<br>然后执行 三命令， 就可以将博客部署到coding上。<br>去阿里云修改dsn解析。  将之前github的dsn 修改为海外 。 然后再添加coding。<br>最后再去coding的仓库pages服务， 添加静态pages。 并添加自定义域名。 我手动添加了<code>zzzzone.top</code>和<code>www.zzzzone.top</code>两个域名。   </p>
+<p>最后我在/Users/zong/Documents/hexo/themes/next/layout/_partials中 </p>
 
       
     </div>
@@ -753,8 +754,9 @@
   <span class="post-meta-divider">|</span>
 
 
-
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+<p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
 
 
 
