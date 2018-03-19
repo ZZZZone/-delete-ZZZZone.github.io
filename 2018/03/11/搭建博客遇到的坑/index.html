@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （不打算搬了， 分开写不同的东西）about页面的一些美化让百度google能够搜索    （谷歌已经解决， 百度貌似被github屏蔽了）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶    已解决问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-19T08:36:54.000Z">
+<meta property="og:updated_time" content="2018-03-19T12:10:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的坑">
 <meta name="twitter:description" content="待解决问题首页预览行数控制问题。配置第三方服务。  （评论， 数量统计之类的)是否能把csdn的博客迁过来。 （不打算搬了， 分开写不同的东西）about页面的一些美化让百度google能够搜索    （谷歌已经解决， 百度貌似被github屏蔽了）每一篇文章阅读量多台电脑管理博客， 参考博客共同管理站点让文章可以置顶    已解决问题">
@@ -295,10 +295,8 @@
   
   
   
-    
-  
 
-  <article class="post post-type-normal post-sticky" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -348,7 +346,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-19T16:36:54+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-19T20:10:38+08:00">
                 2018-03-19
               </time>
             
@@ -450,7 +448,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">uninstall</span> hexo-generator-<span class="keyword">index</span> <span class="comment">--save  </span></span><br><span class="line">$ npm <span class="keyword">install</span> hexo-generator-<span class="keyword">index</span>-pin-top <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <p>之后只需要在文章的front-matter中添加<code>top: ture</code>就可以将博文置顶了。<br>后来我又发现， 使用<code>top: 数值</code> 会按数值降序置顶排序。</p>
 <p>next主题支持在front-matter中添加<code>sticky: true</code>来显示置顶标志（一个小Pin）。</p>
-<h3 id="将博客部署到coding-上"><a href="#将博客部署到coding-上" class="headerlink" title="将博客部署到coding 上"></a>将博客部署到coding 上</h3><p>参考博客<a href="https://www.jianshu.com/p/934d4b501b18" target="_blank" rel="noopener">Hexo博客部署到GitHub和Coding</a><br>我部署到coding上主要是为了解决百度无法爬去github。<br>首先是在coding上注册账号， 然后创建一个工程， <strong>工程名称和你的用户名一样， 避免css之后渲染出问题</strong>。<br>给coding配置ssh秘钥。 在终端中执行<code>ssh -T git@git.coding.net</code> 检验是否配置成功。<br>然后在站点的配置文件 <code>_config.yml</code> 中添加coding的ssh路径. 仿照github中的方法配置。<br>然后执行 三命令， 就可以将博客部署到coding上。<br>去阿里云修改dsn解析。  将之前github的dsn 修改为海外 。 然后再添加coding。<br>最后再去coding的仓库pages服务， 添加静态pages。 并添加自定义域名。 我手动添加了<code>zzzzone.top</code>和<code>www.zzzzone.top</code>两个域名。   </p>
+<h3 id="将博客部署到coding-上"><a href="#将博客部署到coding-上" class="headerlink" title="将博客部署到coding 上"></a>将博客部署到coding 上</h3><p>参考博客<a href="https://www.jianshu.com/p/934d4b501b18" target="_blank" rel="noopener">Hexo博客部署到GitHub和Coding</a><br>我部署到coding上主要是为了解决百度无法爬去github。<br>首先是在coding上注册账号， 然后创建一个工程， <strong>工程名称和你的用户名一样， 避免css之后渲染出问题</strong>。<br>给coding配置ssh秘钥。 在终端中执行<code>ssh -T git@git.coding.net</code> 检验是否配置成功。<br>然后在站点的配置文件 <code>_config.yml</code> 中添加coding的ssh路径. 仿照github中的方法配置。<br>然后执行 三命令， 就可以将博客部署到coding上。<br>去阿里云修改dsn解析。  将之前github的dsn 修改为海外 。 然后再添加coding。<br>最后再去coding的仓库pages服务， 添加静态pages。 并添加自定义域名。 我手动添加了<code>zzzzone.top</code>和<code>www.zzzzone.top</code>两个域名。</p>
 <p>最后我在/Users/zong/Documents/hexo/themes/next/layout/_partials中 </p>
 
       
@@ -491,6 +489,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/19/想把博客部署到Coding上-看完再决定/" rel="prev" title="想把博客部署到Coding上? 看完再决定">
+                想把博客部署到Coding上? 看完再决定 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -574,7 +576,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +743,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.7k</span>
+    <span title="Site words total count">2.4k</span>
   
 </div>
 

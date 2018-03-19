@@ -5,11 +5,31 @@
     
   <url>
     <loc>http://zzzzone.top/2018/03/11/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</loc>
-    <lastmod>2018-03-19T08:36:54.000Z</lastmod>
+    <lastmod>2018-03-19T12:10:38.000Z</lastmod>
     <data>
         <display>
         <title>搭建博客遇到的坑</title>
         <pubTime>2018-03-11T04:59:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客搭建" url="http://zzzzone.top/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zzzzone.top/2018/03/19/%E6%83%B3%E6%8A%8A%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0Coding%E4%B8%8A-%E7%9C%8B%E5%AE%8C%E5%86%8D%E5%86%B3%E5%AE%9A/</loc>
+    <lastmod>2018-03-19T12:10:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>想把博客部署到Coding上? 看完再决定</title>
+        <pubTime>2018-03-19T11:42:14.000Z</pubTime>
         
         <tag>hexo</tag>
          
