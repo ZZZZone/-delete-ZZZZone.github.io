@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在Mac中将chrome商店下载的插件导出为crx]]></title>
+    <url>%2F2018%2F03%2F25%2F%E5%9C%A8Mac%E4%B8%AD%E5%B0%86chrome%E5%95%86%E5%BA%97%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%8F%92%E4%BB%B6%E5%AF%BC%E5%87%BA%E4%B8%BAcrx%2F</url>
+    <content type="text"><![CDATA[Mac下Chrome的插件保存在~/Library/Application\ Support/Google/Chrome/Default/Extensions/对应ID下。 通过下面两行命令我们可以看到每个插件的命名都是他固定的ID。 也就是在chrome浏览器中扩展程序里显示的ID。 12cd ~/Library/Application\ Support/Google/Chrome/Default/Extensions/ls 12cd 对应插件的IDls 这时候可以看到这个软件的版本， 再cd版本号 12cd 对应版本号pwd 使用pwd显示当前路径， 然后复制该路径。 粘贴到chrome-&gt;扩展程序-&gt;打包扩展程序。点击打包扩展程序这时候.xrc文件就会生成到对应目录下， 结束！]]></content>
+      <categories>
+        <category>Mac技巧</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>chrome插件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[想把博客部署到Coding上? 看完再决定]]></title>
     <url>%2F2018%2F03%2F19%2F%E6%83%B3%E6%8A%8A%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0Coding%E4%B8%8A-%E7%9C%8B%E5%AE%8C%E5%86%8D%E5%86%B3%E5%AE%9A%2F</url>
     <content type="text"><![CDATA[我想大多数人想把博客同时部署到Github和Coding上的目的基本都一样： 加快国内访问速度 能够被百度收录 我主要是奔着被百度收录进来的， 因为Github已经屏蔽了百度的爬虫， 所以想要被百度收录， 只好另寻他路， 网上有人说可以同时部署到gitcafe上， 可是一查， gitcafe早在2016年3月就被Coding并购了, 所以目前最好的办法就是同时部署到Github和Coding上了. 但是!! 但是!! Coding其实也坑的很. 首先Coding分为了四种会员:普通会员、银牌会员、金牌会员和钻石会员。 我想基本上每个人都使用了自己的域名了吧， 第一个坑点就是:你想绑定自己的域名, 必须是银牌会员。这个银牌会员是免费的， 只需要你完善个人信息就可以了。 但是你以为这样就结束了吗？ 并没有， 看官方的介绍说： 银牌会员是受限的pages自定义域名。 金牌及以上才是完全的自定义域名。我们来看看银牌是如何受限的： 银牌会员的 Coding Pages 在访问时默认会先加载 Pages 跳转页，您可选择在网站首页任意位置放置「Hosted by Coding Pages」的文字版或图片版，然后勾选下方的「已放置 Hosted by Coding Pages」选项，通过审核后您的 Pages 将不会显示跳转页。请务必将「Hosted by Coding Pages」持续保留在网站首页，撤掉后跳转页会再次出现。 意思就是说你使用自定义域名可以， 但是先帮我们弹一个页面， (打个广告). 这首先就影响了用户的体验， 并且， 百度爬虫也是爬不到的， 因为第一次访问到的是他的广告页面。并且最近(2018-3-19)我发现跳转的这个页面无法访问了， 所以每当第一次进入博客就会转到coding/404。之后再进一次就是正常的博客了， 但是你只要清除浏览器数据、缓存， 再次登录 又是404。体验更是糟糕。 我才猛的想起来前几天看了一些人的博客打开就是coding的404， 我以为是他们的博客不用了， 现在想想原来是coding搞的鬼。 当然coding显然意识到了这样体验实在是太差了， 当然有别的选择， 在你的博客上帮他打广告！ 只要你在博客首页放上coding要求的文字或者图片并且通过审核， 就可以不用页面跳转了。 我今天刚刚提交申请， 说是在两个工作日完成审核。 我文字放在了最下面： 第二天更新：我是昨天下午提交审核的， 今天早晨下课一看已经通过审核了。 可以通过Coding正常访问了， 不会跳出中转页面。 紧接着我就去阿里云设置dns， 将github的设置为境外， coding为默认。 然后去了站长工具dns检测 。 可以看出大陆的都是通过coding访问的， 国外的是通过github访问的。 当然我最关心的问题还是百度收录的问题，去百度平台看了一下， 发现之前提交的站点地图在昨晚11点半的时候竟然有抓取记录， 不懂这是在干嘛， 百度搜了一下我的域名还是搜不到， 又去抓取诊断里试了一下， 咦！ 竟然能被抓取到了。但是试了几次不是百分百成功。 网上都说被百度收录是一个漫长的过程， 那我就先慢慢等待。]]></content>
