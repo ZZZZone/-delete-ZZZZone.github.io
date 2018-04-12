@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="算法,数据结构," />
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="我自己用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个.  那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.   我们先回顾一下归并排序的具体实现方法：  归并排序依靠递归的思想， 每次把当前要排序的区间分成尽可能相等的两部分， 左右两部分分别进行">
-<meta name="keywords" content="算法">
+<meta name="description" content="用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个.  那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.">
+<meta name="keywords" content="算法,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法学习-归并树">
 <meta property="og:url" content="http://zzzzone.top/2018/04/11/算法学习-归并树/index.html">
 <meta property="og:site_name" content="ZZZZone的博客">
-<meta property="og:description" content="我自己用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个.  那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.   我们先回顾一下归并排序的具体实现方法：  归并排序依靠递归的思想， 每次把当前要排序的区间分成尽可能相等的两部分， 左右两部分分别进行">
+<meta property="og:description" content="用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个.  那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-12T14:21:58.000Z">
+<meta property="og:updated_time" content="2018-04-12T14:24:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习-归并树">
-<meta name="twitter:description" content="我自己用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个.  那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.   我们先回顾一下归并排序的具体实现方法：  归并排序依靠递归的思想， 每次把当前要排序的区间分成尽可能相等的两部分， 左右两部分分别进行">
+<meta name="twitter:description" content="用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个.  那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.">
 
 
 
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-12T22:21:58+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-12T22:24:12+08:00">
                 2018-04-12
               </time>
             
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  963
+                  960
                 </span>
               
 
@@ -441,13 +441,12 @@
       
 
       
-        <p>我自己用一句话定义归并树就是<strong>用线段树记录归并排序时每一层每一段数组的状态。</strong></p>
+        <p>用一句话定义归并树就是<strong>用线段树记录归并排序时每一层每一段数组的状态。</strong></p>
 <h3 id="用途："><a href="#用途：" class="headerlink" title="用途："></a>用途：</h3><ol>
 <li>归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个. </li>
 <li>那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值.</li>
 </ol>
-<hr>
-<p>我们先回顾一下<strong>归并排序</strong>的具体实现方法：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>我们先回顾一下<strong>归并排序</strong>的具体实现方法：</p>
 <ul>
 <li>归并排序依靠<strong>递归</strong>的思想， 每次把当前要排序的区间分成尽可能相等的两部分， 左右两部分分别进行归并排序， 之后再将排好序的左右两个区间合并。 当区间长度为1的时候， 停止递归。</li>
 </ul>
@@ -485,6 +484,8 @@
         <div class="post-tags">
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -611,7 +612,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -709,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用途："><span class="nav-number">1.</span> <span class="nav-text">用途：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用途："><span class="nav-number">1.</span> <span class="nav-text">用途：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a></div>
             
 
           </div>
