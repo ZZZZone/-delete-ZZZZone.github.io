@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[算法学习-归并树]]></title>
+    <url>%2F2018%2F04%2F11%2F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E5%BD%92%E5%B9%B6%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[我自己用一句话定义归并树就是用线段树记录归并排序时每一层每一段数组的状态。 用途： 归并树可以在$O(log(n)^2 )$复杂度查找区间[l,r]比x小的有几个. 那么就可以通过二分枚举在$O(log(n)^3 )$复杂度实现查找区间[l,r]第k大的值. 我们先回顾一下归并排序的具体实现方法： 归并排序依靠递归的思想， 每次把当前要排序的区间分成尽可能相等的两部分， 左右两部分分别进行归并排序， 之后再将排好序的左右两个区间合并。 当区间长度为1的时候， 停止递归。 复杂度分析： 因为每次将当前序列分成两部分递归， 最多分$O(log(n))$层, 每层有n个元素, 所以归并排序的复杂度是$O(nlog(n))$. 归并排序最常用的就是求逆序对的个数， 其实用树状数组也可以在相同的复杂度下求出逆序对。 c++实现代码： 123456789101112131415161718192021//参考紫书算法竞赛入门经典 void merge_sort(int *A, int l, int r, int *T)&#123; //[l, r) 排序. 外部调用区间为[0, n) if(r - l &gt; 1)&#123; int mid = l+(r-l)/2; int p = l, q = mid, now = l; // 对左右两部分区间分别归并排序 merge_sort(A, l, mid, T); merge_sort(A, mid, r, T); // 合并左右两部分 while(p &lt; mid || q &lt; r)&#123; if(q &gt;= r || (p &lt; mid &amp;&amp; A[p] &lt;= A[q]))&#123; T[now++] = A[p++]; &#125; else&#123; T[now++] = A[q++]; cnt += mid - p; // cnt记录的是逆序对个数 &#125; &#125; for(int i = l; i &lt; r; i++) A[i] = T[i]; &#125;&#125; 以上是对归并排序的复习， 下面继续学习归并树。 先说一下归并树的大致思想， 用vector维护出每一个节点的区间[l,r)排完序之后的数组, 每次查询的时候, 分三种情况. 如果要查询的区间和当前的区间没有交集, 返回0个. 如果要查询的区间完全包含了当前的区间， 用二分搜索对于当前节点保存的数组进行查找。 负责的话递归左右儿子查找并且求和。 根据归并排序的思想， 要先初始化归并树， 原理同归并排序， 只不过把数组的值都存起来了， 每次询问的时候， 分上面说的三种情况就可以了。 具体看下面这一道例题以及模板代码。 模板例题： 2104 - K-th Number 123456789101112131415161718192021222324252627282930313233343536373839// 代码参考白书(挑战程序设计竞赛)const int MAXN = 1e5;const int ST_SIZE = (1 &lt;&lt; 18) - 1;int n, m;int a[MAXN+5], num[MAXN+5];// num用来存a排好序之后的数组， 方便二分vector&lt;int&gt; dat[ST_SIZE];// 初始化归并树， 原理和归并排序一样， 区间[l, r)void init(int k, int l, int r)&#123; if(r - l == 1)&#123; dat[k].push_back(a[l]); &#125; else&#123; int lch = k * 2 + 1, rch = k * 2 + 2; init(lch, l, (l+r)/2); init(rch, (l+r)/2, r); dat[k].resize(r-l); merge(dat[lch].begin(), dat[lch].end(), dat[rch].begin(), dat[rch].end(), dat[k].begin()); // 利用STL自带的merge函数把两个儿子的数列合并 &#125;&#125;// 计算[ql, qr) 中不超过x的个数// k是节点的编号, 对应区间[l, r)int query(int ql, int qr, int x, int k, int l, int r)&#123; if(qr &lt;= l || r &lt;= ql)&#123;//完全不相交 return 0; &#125; else if(ql &lt;= l &amp;&amp; r &lt;= qr)&#123; // 询问完全包含当前区间 return upper_bound(dat[k].begin(), dat[k].end(), x) - dat[k].begin(); &#125; else&#123; int lcnt = query(ql, qr, x, k*2+1, l, (l+r)/2); int rcnt = query(ql, qr, x, k*2+2, (l+r)/2, r); return lcnt + rcnt; &#125;&#125;]]></content>
+      <categories>
+        <category>算法学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在Mac中将chrome商店下载的插件导出为crx]]></title>
     <url>%2F2018%2F03%2F25%2F%E5%9C%A8Mac%E4%B8%AD%E5%B0%86chrome%E5%95%86%E5%BA%97%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%8F%92%E4%BB%B6%E5%AF%BC%E5%87%BA%E4%B8%BAcrx%2F</url>
     <content type="text"><![CDATA[Mac下Chrome的插件保存在~/Library/Application\ Support/Google/Chrome/Default/Extensions/对应ID下。 通过下面两行命令我们可以看到每个插件的命名都是他固定的ID。 也就是在chrome浏览器中扩展程序里显示的ID。 12cd ~/Library/Application\ Support/Google/Chrome/Default/Extensions/ls 12cd 对应插件的IDls 这时候可以看到这个软件的版本， 再cd版本号 12cd 对应版本号pwd 使用pwd显示当前路径， 然后复制该路径。 粘贴到chrome-&gt;扩展程序-&gt;打包扩展程序。点击打包扩展程序这时候.xrc文件就会生成到对应目录下， 结束！]]></content>
