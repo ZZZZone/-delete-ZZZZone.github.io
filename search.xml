@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决javaFX import报错]]></title>
+    <url>%2F2018%2F05%2F16%2F%E8%A7%A3%E5%86%B3javaFX-import%E6%8A%A5%E9%94%99%2F</url>
+    <content type="text"><![CDATA[今天在机房电脑用eclipse和自己电脑的eclipse写javaFX的时候， 在import javafx.application.Application;之后都出现了报错。 解决方法： Project -&gt; Properties -&gt; libraries，先 remove 掉 JRE System Library，然后再 Add Library 重新加入。 原因：eclipse默认的jre是不会指定jfxrt.jar的，只能手工添加。所以需要重新手动导入JRE。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>解决问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vim操作命令学习整理]]></title>
     <url>%2F2018%2F05%2F15%2Fvim%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86%2F</url>
     <content type="text"><![CDATA[日常记录容易忘记的Vim指令 首先是这两个符号： ^表示行的开头。 $表示行尾。 这样可以通过:num1,num2s/old/new/g的替换命令实现快速在多行行首和行尾插入。 比如在cpp文件中想在1到5行添加//进行注释， 那么命令就是 1:1,5s/^/\/\//g 因为\符号需要转义， 所以连个\\的注释需要写成\/\/. 当然我们也可以通过命令快速取消注释 1:1,5s/^\/\///g 也可以使用shift+V快速选中多行在视图模式下直接按:, 会自动补全:&#39;&lt;,&#39;&gt; 这时候只需要输入后面的命令就可以实现将选中的行进行快速操作。 快速注释已选中的行： 1:'&lt;,'&gt;s/^/\/\//g 快速取消注释 其实以上几条命令不加后面的/g效果也是一样的, 因为每一行只有最开头有一个^符号。 比如下面这样 取消选中行的注释 1:'&lt;,'&gt;s/^\/\/]]></content>
