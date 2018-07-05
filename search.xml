@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python学习笔记-1]]></title>
+    <url>%2F2018%2F07%2F05%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1%2F</url>
+    <content type="text"><![CDATA[从昨天开始学习Python， 简单的配置了Python的环境变量， 今天开始正式学习Python。 第二章 变量和简单数据类型字符串 Python中的字符串既可以是双引号&quot; 也可以是单引号&#39;引起来的字符串。 .title() 返回将字符串中所有单词首字母大写. .upper() 转为大写字母串, .lower() 转成小写字符串 直接使用+可以对字符串进行相加 .strip() 返回一个删除左右空白的字符串。 .lstrip()去头空白 .rstrip() 去尾空白 数字 Python中用两个星号**表示幂次 例如： 12&gt;&gt;&gt; 10 ** 61000000 注释 Python使用井号#进行注释 第三章 列表（数组） array[-1]访问数组的最后一个元素。 同理， -2， -3分别是倒数第二个， 倒数第三个。 列表是动态的。 添加、删除元素 添加元素 .append(e) 在末尾添加元素e。 .insert(pos, e) 在pos位置添加元素e 删除元素 del 列表名[下标] 删除指定下标元素 .pop() 删除（弹出）列表尾部元素 .pop(pos) 弹出pos位置的元素 .remove(e) 删除指定元素e（第一次出现的） 组织列表（排序） 使用sort()对列表永久性排序 123456cars = ['bnw', 'audi', 'toyota', 'subaru']print(cars)cars.sort() # 正序排序print(cars)cars.sort(reverse = True) #反序排序print(cars) 使用sorted()对列表临时排序 1234cars = ['bnw', 'audi', 'toyota', 'subaru']print(sorted(cars)) # 临时排序print(cars)print(sorted(cars, reverse = True)) #临时倒序排序 .reverse()使列表反转 len(array)获得列表array的长度]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iPhone5C重生记]]></title>
     <url>%2F2018%2F07%2F04%2FiPhone5C%E9%87%8D%E7%94%9F%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[我的iPhone5C在一年半前进水坏掉了， 刚开始只是开机键失灵， 导致自动锁屏亮屏， 一按home键就自动截屏。 拆开过好几次都没有修好， 后来就入了小米5s，5c就拆开晾在一边了。 有过想法把他放到相框里裱起来， 比较有科技范。但是一直都没找到合适的相框。 于是小C就一直躺在抽屉里。 前两天在淘宝花了130块买了一套总成，（也就是除了屏幕和主板其他都有）。 顺便颜色也换了， 原来是， 买了个白色的。 买回来第一时间装机， 顺利亮屏！ 开心。简单的测试了一下都没什么问题（相机、 震动、 外放、蓝牙什么的）。 系统是IOS10， 随便逛了逛以前常去的威锋论坛和5C贴吧， 发现IOS10竟然可以越狱了！ 果断第一时间越狱。 看到了熟悉的Cydia。 简单使用了一段时间我发现wifi特别弱， 只能搜到我电脑的wifi而且有效距离基本只有1m 2m。 电脑在下面 我上了床基本就没信号了。 刚开始以为是排线不行， 后来仔细回想了一下发现排线那个线我没有接到主板上， 果断再次拆机， 接上了wifi排线。 再开机。 哈哈 wifi回来了！ 顺便下了一个查看wifi信号强度的插件。 还有其他各种越狱插件折腾哈哈哈。]]></content>
@@ -103,8 +115,8 @@
         <category>vim</category>
       </categories>
       <tags>
-        <tag>vim</tag>
         <tag>学习笔记</tag>
+        <tag>vim</tag>
       </tags>
   </entry>
   <entry>
