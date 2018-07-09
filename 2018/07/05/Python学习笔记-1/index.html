@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="从昨天开始学习Python， 简单的配置了Python的环境变量， 今天开始正式学习Python。 第二章 变量和简单数据类型字符串 Python中的字符串既可以是双引号&amp;quot; 也可以是单引号&amp;#39;引起来的字符串。 .title() 返回将字符串中所有单词首字母大写. .upper() 转为大写字母串,    .lower() 转成小写字符串 直接使用+可以对字符串进行相加 .stri">
+<meta name="description" content="记录学习Python的点点滴滴， 主要是记录自己记不住的地方。">
 <meta name="keywords" content="Python,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记-1">
 <meta property="og:url" content="http://zzzzone.top/2018/07/05/Python学习笔记-1/index.html">
 <meta property="og:site_name" content="ZZZZone的博客">
-<meta property="og:description" content="从昨天开始学习Python， 简单的配置了Python的环境变量， 今天开始正式学习Python。 第二章 变量和简单数据类型字符串 Python中的字符串既可以是双引号&amp;quot; 也可以是单引号&amp;#39;引起来的字符串。 .title() 返回将字符串中所有单词首字母大写. .upper() 转为大写字母串,    .lower() 转成小写字符串 直接使用+可以对字符串进行相加 .stri">
+<meta property="og:description" content="记录学习Python的点点滴滴， 主要是记录自己记不住的地方。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-09T15:40:22.000Z">
+<meta property="og:updated_time" content="2018-07-09T15:47:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-1">
-<meta name="twitter:description" content="从昨天开始学习Python， 简单的配置了Python的环境变量， 今天开始正式学习Python。 第二章 变量和简单数据类型字符串 Python中的字符串既可以是双引号&amp;quot; 也可以是单引号&amp;#39;引起来的字符串。 .title() 返回将字符串中所有单词首字母大写. .upper() 转为大写字母串,    .lower() 转成小写字符串 直接使用+可以对字符串进行相加 .stri">
+<meta name="twitter:description" content="记录学习Python的点点滴滴， 主要是记录自己记不住的地方。">
 
 
 
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-09T23:40:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-09T23:47:22+08:00">
                 2018-07-09
               </time>
             
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  955
+                  949
                 </span>
               
 
@@ -441,8 +441,8 @@
       
 
       
-        <a id="more"></a>
-<p>从昨天开始学习Python， 简单的配置了Python的环境变量， 今天开始正式学习Python。</p>
+        <p>记录学习Python的点点滴滴， 主要是记录自己记不住的地方。</p>
+<a id="more"></a>
 <h1 id="第二章-变量和简单数据类型"><a href="#第二章-变量和简单数据类型" class="headerlink" title="第二章 变量和简单数据类型"></a>第二章 变量和简单数据类型</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
 <li>Python中的字符串既可以是双引号<code>&quot;</code> 也可以是单引号<code>&#39;</code>引起来的字符串。</li>
 <li><code>.title()</code> 返回将字符串中所有单词首字母大写.</li>
@@ -499,10 +499,12 @@
   <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">	print(x)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre><code>输出：
-
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
-</code></pre><ul>
+<ul>
+<li><p>输出：</p>
+  <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
 <li>可使用<code>numbers = list(range(开始位置, 结束位置  [ ,增量]))</code>直接创建列表    </li>
 </ul>
 <h2 id="min-max-sum"><a href="#min-max-sum" class="headerlink" title="min()  max()  sum()"></a>min()  max()  sum()</h2><ul>
