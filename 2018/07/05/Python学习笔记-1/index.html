@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="记录学习Python的点点滴滴， 主要是记录自己记不住的地方。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T15:57:40.000Z">
+<meta property="og:updated_time" content="2018-07-21T14:28:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-1">
 <meta name="twitter:description" content="记录学习Python的点点滴滴， 主要是记录自己记不住的地方。">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-20T23:57:40+08:00">
-                2018-07-20
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-21T22:28:53+08:00">
+                2018-07-21
               </time>
             
           </span>
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,792
+                  2,077
                 </span>
               
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -606,6 +606,12 @@
 <li>lili</li>
 </ul>
 </blockquote>
+<p><strong>如果函数要传入多个参数， 则任意数量的形参一定要放在最后</strong></p>
+<p><strong>有的时候， 不能够确定需要向函数传入几个实参， 那么可以在函数的形参中使用`</strong>形参名`创建一个字典， 所有的键值对都会存到这个字典中。**</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>使用<code>import</code>关键字导入模块。<br>也可使用<code>form module_name import function_name</code>导入特定的函数。<br><code>from module_name function_0, function_1, function_2</code> 导入多个函数。</p>
+<p>如果是导入指定的函数， 可直接调用， 否则需要使用<code>module_name.function_name()</code>的方式调用函数。</p>
+<p>当然可能会出现函数重名的现象， 或者函数名太长不方便使用， 可以再导入的时候使用<code>as</code>关键字起一个别名， 包括<strong>函数名</strong>和<strong>模块名</strong>。</p>
+<p>使用 <code>from module_name import *</code>导入模块的所有函数， 则可以再代码中直接调用函数， 不需要使用<em>模块名.函数名</em>的方式调用。   <strong>但是并不建议这么做， 因为很容易导致和当前代码中一些函数重名导致一些奇怪的错误。</strong></p>
 
       
     </div>
@@ -850,7 +856,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-变量和简单数据类型"><span class="nav-number">1.</span> <span class="nav-text">第二章 变量和简单数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">1.2.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.3.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-列表（数组）"><span class="nav-number">2.</span> <span class="nav-text">第三章  列表（数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加、删除元素"><span class="nav-number">2.1.</span> <span class="nav-text">添加、删除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组织列表（排序）"><span class="nav-number">2.2.</span> <span class="nav-text">组织列表（排序）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-列表的一系列操作"><span class="nav-number">3.</span> <span class="nav-text">第四章 列表的一系列操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">3.1.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range"><span class="nav-number">3.2.</span> <span class="nav-text">range()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#min-max-sum"><span class="nav-number">3.3.</span> <span class="nav-text">min()  max()  sum()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表解析"><span class="nav-number">3.4.</span> <span class="nav-text">列表解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切片-—-处理列表的部分元素"><span class="nav-number">3.5.</span> <span class="nav-text">切片 — 处理列表的部分元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制列表"><span class="nav-number">3.6.</span> <span class="nav-text">复制列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元祖-—-不可变的列表"><span class="nav-number">3.7.</span> <span class="nav-text">元祖 — 不可变的列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if语句"><span class="nav-number">4.</span> <span class="nav-text">if语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#检查特定值是否在包包含在列表中"><span class="nav-number">4.1.</span> <span class="nav-text">检查特定值是否在包包含在列表中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">4.2.</span> <span class="nav-text">布尔值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-字典"><span class="nav-number">5.</span> <span class="nav-text">第六章 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典基本操作"><span class="nav-number">5.1.</span> <span class="nav-text">字典基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套"><span class="nav-number">5.2.</span> <span class="nav-text">嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字典列表"><span class="nav-number">5.2.1.</span> <span class="nav-text">字典列表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-input-和-while"><span class="nav-number">6.</span> <span class="nav-text">第七章 input() 和 while</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#input"><span class="nav-number">6.1.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while"><span class="nav-number">6.2.</span> <span class="nav-text">while</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参的方式"><span class="nav-number">7.1.</span> <span class="nav-text">函数传参的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-位置实参"><span class="nav-number">7.1.1.</span> <span class="nav-text">1. 位置实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-关键字实参"><span class="nav-number">7.1.2.</span> <span class="nav-text">2. 关键字实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-number">7.1.3.</span> <span class="nav-text">默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数返回值"><span class="nav-number">7.2.</span> <span class="nav-text">函数返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向函数传递列表"><span class="nav-number">7.3.</span> <span class="nav-text">向函数传递列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止函数修改列表"><span class="nav-number">7.4.</span> <span class="nav-text">禁止函数修改列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传递任意数量的实参"><span class="nav-number">7.5.</span> <span class="nav-text">传递任意数量的实参</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-变量和简单数据类型"><span class="nav-number">1.</span> <span class="nav-text">第二章 变量和简单数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">1.2.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.3.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-列表（数组）"><span class="nav-number">2.</span> <span class="nav-text">第三章  列表（数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加、删除元素"><span class="nav-number">2.1.</span> <span class="nav-text">添加、删除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组织列表（排序）"><span class="nav-number">2.2.</span> <span class="nav-text">组织列表（排序）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-列表的一系列操作"><span class="nav-number">3.</span> <span class="nav-text">第四章 列表的一系列操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">3.1.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range"><span class="nav-number">3.2.</span> <span class="nav-text">range()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#min-max-sum"><span class="nav-number">3.3.</span> <span class="nav-text">min()  max()  sum()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表解析"><span class="nav-number">3.4.</span> <span class="nav-text">列表解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切片-—-处理列表的部分元素"><span class="nav-number">3.5.</span> <span class="nav-text">切片 — 处理列表的部分元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制列表"><span class="nav-number">3.6.</span> <span class="nav-text">复制列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元祖-—-不可变的列表"><span class="nav-number">3.7.</span> <span class="nav-text">元祖 — 不可变的列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if语句"><span class="nav-number">4.</span> <span class="nav-text">if语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#检查特定值是否在包包含在列表中"><span class="nav-number">4.1.</span> <span class="nav-text">检查特定值是否在包包含在列表中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">4.2.</span> <span class="nav-text">布尔值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-字典"><span class="nav-number">5.</span> <span class="nav-text">第六章 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典基本操作"><span class="nav-number">5.1.</span> <span class="nav-text">字典基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套"><span class="nav-number">5.2.</span> <span class="nav-text">嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字典列表"><span class="nav-number">5.2.1.</span> <span class="nav-text">字典列表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-input-和-while"><span class="nav-number">6.</span> <span class="nav-text">第七章 input() 和 while</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#input"><span class="nav-number">6.1.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while"><span class="nav-number">6.2.</span> <span class="nav-text">while</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数传参的方式"><span class="nav-number">7.1.</span> <span class="nav-text">函数传参的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-位置实参"><span class="nav-number">7.1.1.</span> <span class="nav-text">1. 位置实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-关键字实参"><span class="nav-number">7.1.2.</span> <span class="nav-text">2. 关键字实参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-number">7.1.3.</span> <span class="nav-text">默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数返回值"><span class="nav-number">7.2.</span> <span class="nav-text">函数返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向函数传递列表"><span class="nav-number">7.3.</span> <span class="nav-text">向函数传递列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止函数修改列表"><span class="nav-number">7.4.</span> <span class="nav-text">禁止函数修改列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传递任意数量的实参"><span class="nav-number">7.5.</span> <span class="nav-text">传递任意数量的实参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">7.6.</span> <span class="nav-text">模块</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -904,7 +910,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.6k</span>
+    <span title="Site words total count">19.9k</span>
   
 </div>
 
