@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="这里主要记录平时用Python写题遇到的问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-31T02:28:49.000Z">
+<meta property="og:updated_time" content="2018-08-12T13:30:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-2">
 <meta name="twitter:description" content="这里主要记录平时用Python写题遇到的问题。">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-31T10:28:49+08:00">
-                2018-07-31
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-12T21:30:29+08:00">
+                2018-08-12
               </time>
             
           </span>
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  316
+                  382
                 </span>
               
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -449,6 +449,9 @@
 <p>百度后得知这是函数和全局变量的问题。<br>报错信息意思是变量还未定义。<br>在Python中，  在函数中对变量进行赋值， 默认是对局部变量进行赋值， 如果变量中没有声明局部变量， 则报错。<br>如果只是访问全局变量的话， 则不会报错。<br>要想修改全局变量， 则需要使用<code>global</code> 关键字声明， 来引用全局变量。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(Sum)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, math.ceil(math.sqrt(Sum))):</span><br><span class="line">        <span class="keyword">if</span> Sum % i == <span class="number">0</span> : <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Dfs</span><span class="params">(dis, Sum, tot)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> dis == tot <span class="keyword">and</span> check(Sum):</span><br><span class="line">        <span class="keyword">global</span> ans  <span class="comment"># 声明引用全局变量</span></span><br><span class="line">        ans = max(ans, Sum)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, tot+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> vis[i] == <span class="keyword">False</span>:</span><br><span class="line">            vis[i] = <span class="keyword">True</span></span><br><span class="line">            Dfs(dis+<span class="number">1</span>, Sum * <span class="number">10</span> + i, tot)</span><br><span class="line">            vis[i] = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vis = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">    vis[i] = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n):</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    Dfs(<span class="number">0</span>, <span class="number">0</span>, i)</span><br><span class="line">    print(ans)</span><br></pre></td></tr></table></figure>
 <h3 id="获得ASCII码"><a href="#获得ASCII码" class="headerlink" title="获得ASCII码"></a>获得ASCII码</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print( c + <span class="string">" 的ASCII 码为"</span>, ord(c))</span><br><span class="line">print( a , <span class="string">" 对应的字符为"</span>, chr(a))</span><br></pre></td></tr></table></figure>
+<h3 id="如何打印全排列"><a href="#如何打印全排列" class="headerlink" title="如何打印全排列"></a>如何打印全排列</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">s = <span class="string">"1234567"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> itertools.permutations(s,<span class="number">7</span>):</span><br><span class="line">	print(<span class="string">''</span>.join(i))</span><br></pre></td></tr></table></figure>
+<h3 id="递归次数太多爆栈"><a href="#递归次数太多爆栈" class="headerlink" title="递归次数太多爆栈"></a>递归次数太多爆栈</h3><p>递归次数太多会抛出<code>RuntimeError: maximum recursion depth exceeded</code>错误</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"> </span><br><span class="line">sys.setrecursionlimit(<span class="number">1000000</span>) <span class="comment">#设置最大递归次数</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -693,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#报错-nboundLocalError-local-variable-‘ans’-referenced-before-assignment"><span class="nav-number">1.</span> <span class="nav-text">报错 nboundLocalError: local variable ‘ans’ referenced before assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得ASCII码"><span class="nav-number">2.</span> <span class="nav-text">获得ASCII码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#报错-nboundLocalError-local-variable-‘ans’-referenced-before-assignment"><span class="nav-number">1.</span> <span class="nav-text">报错 nboundLocalError: local variable ‘ans’ referenced before assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得ASCII码"><span class="nav-number">2.</span> <span class="nav-text">获得ASCII码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何打印全排列"><span class="nav-number">3.</span> <span class="nav-text">如何打印全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归次数太多爆栈"><span class="nav-number">4.</span> <span class="nav-text">递归次数太多爆栈</span></a></li></ol></div>
             
 
           </div>
@@ -747,7 +750,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">20.4k</span>
+    <span title="Site words total count">20.8k</span>
   
 </div>
 
