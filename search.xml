@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python学习笔记-3 安装Pygame]]></title>
+    <url>%2F2018%2F08%2F23%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-3-%E5%AE%89%E8%A3%85Pygame%2F</url>
+    <content type="text"><![CDATA[第一步 首先检查电脑是否安装了pip.1pip --version 或者 1pip3 --version 出现以下字样则证明本机有pip 1pip 18.0 from /usr/local/lib/python3.6/site-packages/pip (python 3.6) 第二步 安装Pygame所需的依赖库《Python编程从入门到实践》外星人入侵所需要的库。 1brew install sdl smpeg sdl_image sdl_mixer sdl_ttf portmidi hg 高级功能， 让游戏中包含声音。 1brew install sdl_mixer portmidi 第三步 安装Pygame1pip3 install --user hg+https://bitbucket.org/pygame/pygame 目前卡在这一步， 不知道是什么问题。 应该是网速问题， 需要耐心等待。 终于下载完成了。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决Updating Homebrew速度过慢]]></title>
+    <url>%2F2018%2F08%2F23%2F%E8%A7%A3%E5%86%B3Updating-Homebrew%E9%80%9F%E5%BA%A6%E8%BF%87%E6%85%A2%2F</url>
+    <content type="text"><![CDATA[方法1： 更换源12cd /usr/local/Homebrewgit remote set-url origin https://git.coding.net/homebrew/homebrew.git 使用的是国内Coding的源 参考博客： Mac 下更换HomeBrew的镜像, brew update 更新太慢 方法2： 取消自动更新直接在终端内输入 1export HOMEBREW_NO_AUTO_UPDATE=true 参考博客：brew install xxx卡在Updating Homebrew]]></content>
+      <categories>
+        <category>Homebrew</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>Homebrew</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python学习笔记-2]]></title>
     <url>%2F2018%2F07%2F30%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2%2F</url>
     <content type="text"><![CDATA[这里主要记录平时用Python写题遇到的问题。 报错 nboundLocalError: local variable ‘ans’ referenced before assignment今天用Python刷PE时， 一直报这样一个错误。 UnboundLocalError: local variable ‘ans’ referenced before assignment 百度后得知这是函数和全局变量的问题。报错信息意思是变量还未定义。在Python中， 在函数中对变量进行赋值， 默认是对局部变量进行赋值， 如果变量中没有声明局部变量， 则报错。如果只是访问全局变量的话， 则不会报错。要想修改全局变量， 则需要使用global 关键字声明， 来引用全局变量。 1234567891011121314151617181920212223242526272829import mathn = 10ans = 0def check(Sum): for i in range(2, math.ceil(math.sqrt(Sum))): if Sum % i == 0 : return False return Truedef Dfs(dis, Sum, tot): if dis == tot and check(Sum): global ans # 声明引用全局变量 ans = max(ans, Sum) for i in range(1, tot+1): if vis[i] == False: vis[i] = True Dfs(dis+1, Sum * 10 + i, tot) vis[i] = Falsevis = &#123;&#125;for i in range(1, 100): vis[i] = Falsefor i in range(1, n): ans = 0 Dfs(0, 0, i) print(ans) 获得ASCII码12print( c + " 的ASCII 码为", ord(c))print( a , " 对应的字符为", chr(a)) 如何打印全排列12345import itertoolss = "1234567"for i in itertools.permutations(s,7): print(''.join(i)) 递归次数太多爆栈递归次数太多会抛出RuntimeError: maximum recursion depth exceeded错误 123import sys sys.setrecursionlimit(1000000) #设置最大递归次数]]></content>
