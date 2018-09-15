@@ -309,6 +309,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zzzzone.top/2018/09/12/算法学习-筛素数-费马小定理-Miller-Rabin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZZZZone">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZZZZone的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/12/算法学习-筛素数-费马小定理-Miller-Rabin/" itemprop="url">算法学习-筛素数&费马小定理&Miller-Rabin</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T23:20:47+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-15T21:50:37+08:00">
+                2018-09-15
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/12/算法学习-筛素数-费马小定理-Miller-Rabin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/12/算法学习-筛素数-费马小定理-Miller-Rabin/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/12/算法学习-筛素数-费马小定理-Miller-Rabin/" class="leancloud_visitors" data-flag-title="算法学习-筛素数&费马小定理&Miller-Rabin">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,356
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="欧拉筛"><a href="#欧拉筛" class="headerlink" title="欧拉筛:"></a>欧拉筛:</h1><p><strong>复杂度:</strong> $O(n)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getPrime</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> &amp;tot, <span class="keyword">int</span> ans[])</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(valid, <span class="literal">true</span>, <span class="keyword">sizeof</span>(valid));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(valid[i]) ans[++tot] = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * ans[j] &lt;= n; j++)&#123;</span><br><span class="line">			valid[i*ans[j]] = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(i%ans[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保证每一个合数都只被他最小的质因子筛掉， 从而保证复杂度为$O(n)$</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明:"></a>证明:</h2><p>如果 $i \% ans[j] == 0$, 说明$i$是合数, 那么之后枚举的$i \times  ans[j’]$都是$i$的倍数, 也是$i$的质因子$ans[j]$的倍数, 就不需要现在将它筛掉, 之后随着$i$的增大, 当内层循环再次枚举到对应的质因子$ans[j]$之后, 将其筛掉即可.</p>
+<h1 id="费马小定理（Fermat’s-Little-Theorem）"><a href="#费马小定理（Fermat’s-Little-Theorem）" class="headerlink" title="费马小定理（Fermat’s Little Theorem）"></a>费马小定理（Fermat’s Little Theorem）</h1><p><strong>定理:</strong> 当$p$为质数时, 并且$gcd(a, b) == 1$时 $a ^ p - 1 \equiv 1(mod \ p)$.</p>
+<h2 id="证明方法一：-同余法"><a href="#证明方法一：-同余法" class="headerlink" title="证明方法一： 同余法"></a>证明方法一： 同余法</h2><h3 id="通俗理解版-一："><a href="#通俗理解版-一：" class="headerlink" title="通俗理解版 一："></a>通俗理解版 一：</h3><blockquote>
+<p>参考: <a href="https://www.cnblogs.com/flipped/p/5218037.html" target="_blank" rel="noopener">水郁 - 费马小定理证明</a></p>
+</blockquote>
+<p>任意取一个质数，比如13。考虑从1到12的一系列整数1,2,3,4,5,6,7,8,9,10,11,12，给这些数都乘上一个与13互质的数，比如3，得到3,6,9,12,15,18,21,24,27,30,33,36。对于模13来说，这些数同余于3,6,9,12,2,5,8,11,1,4,7,10。这些余数实际上就是原来的1,2,3,4,5,6,7,8,9,10,11,12，只是顺序不同而已。<br>把1,2,3,„,12统统乘起来，乘积就是12的阶乘12！。把3,6,9,…,36也统统乘起来，并且提出公因子3，乘积就是$3^{12} \times  12! $。对于模13来说，这两个乘积都同余于1,2,3,…,12系列，尽管顺序不是一一对应，即$3^{12}×12！≡12! (mod \ 13)$。两边同时除以12！得$3^{12} ≡1 (mod \ 13)$。如果用p代替13，用a代替3，就得到费马小定理</p>
+<h3 id="通俗理解版-二"><a href="#通俗理解版-二" class="headerlink" title="通俗理解版 二:"></a>通俗理解版 二:</h3><blockquote>
+<p>参考: <a href="https://blog.csdn.net/qq_31805821/article/details/80271147" target="_blank" rel="noopener">费马小定理和欧拉定理及其证明</a></p>
+</blockquote>
+<p>首先, 给定一个小于p的正整数的集合$x{1,…,p-1}$, 明显p与集合中所有的元素互质<br>用a乘以集合中所有的元素并对p取模, 那么我们可以得到集合$X{ a \% p, 2a\%p, 3a\%p, … , (p-1)a\%p}$<br>明显X中所有的元素都小于p并且由于a不能整除p, 所以X中所有的元素都不等于0并且各个元素都不相等<br>这说明X和x的构成相同, 只是元素的顺序不同，所以将两个集合的元素分别相乘。</p>
+<p>$(p-1)! (mod\ p) = a^{(p-1)} \times  (p-1)! (mod\ p)$</p>
+<p>两边约去$(p-1)!$即可得到费马小定理</p>
+<h2 id="数学归纳法："><a href="#数学归纳法：" class="headerlink" title="数学归纳法："></a>数学归纳法：</h2><p>参考书: <strong>算法设计编程实验</strong></p>
+<ol>
+<li>当$a == 1$  时, $a ^ {n - 1}  \equiv 1$成立。</li>
+<li>假设当$a$为某正整数时， $a ^ n  \equiv a (mod\ n)$ 成立， 考虑$(a+1)^n $和$a + 1$ 是否同余。<ul>
+<li>$(a+1)^n = a^n + (^n<em>1)a^{n-1} + (^n_2)a^{n-2} + … + (^n</em>{n-1})a^1 + 1$</li>
+<li>因为$n$是质数， 所以等号右边的$(^n_i)a^{n-i}$ 都是$n$的倍数。</li>
+<li>得 $(a+1) ^ n  \equiv  (a^n + 1) (mod\ n)$</li>
+<li>因为我们假设  $a ^ n  \equiv a (mod\ n)$ 成立</li>
+<li>所以$(a+1)^n \equiv (a + 1) (mod \ n)$</li>
+</ul>
+</li>
+<li>所以$a^{n-1} \equiv 1 (mod \ n)$成立 </li>
+</ol>
+<h1 id="Miller-Rabin-素性测试"><a href="#Miller-Rabin-素性测试" class="headerlink" title="Miller-Rabin 素性测试"></a>Miller-Rabin 素性测试</h1><p>Miller—Rabin算法基于费马小定理</p>
+<p>即$a^{n-1} \equiv 1(mod \ n)$ </p>
+<p>所以我们测试一个数n是不是素数， 只需要随机选择一些数字a判断是否满足， n是素数一定满足$a^{n-1} \equiv 1(mod \ n)$ ， 但满足$a^{n-1} \equiv 1(mod \ n)$ 不一定是素数。 所以要选择尽可能多的a进行测试。</p>
+<h2 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h2><ol>
+<li>如果$a^2 \equiv 1(mod\ n)$, 则有$a \equiv 1 (mod \ n)$ 或者 $a \equiv n = 1(mod\ n)$.（二次探测定理）<ul>
+<li>证明二次探测：<br>$<br>\begin{split}<br>&amp; \because a ^ 2 - 1\equiv 0(mod\ n)  \\<br>&amp; \therefore (a + 1)(a - 1) \equiv 0 (mod\ n) \\<br>&amp; \therefore n | (a + 1)(a - 1)  \\<br>&amp; \because n是质数 \\<br>&amp; \therefore a = 1 或者 a = n - 1<br>\end{split}<br>$</li>
+</ul>
+</li>
+<li>现在， 如果有一个大于2的质数n， 令$n - 1 = 2 ^ q \times  m$, 其中m为奇数， 根据费马小定理和以上性质， 可以得到:<br> $a ^m \equiv 1(mod\ n) \text{  或者  } a ^ 2 \equiv 1(mod\ n) \text{  或者  }a^{2^r\times m} \equiv n - 1(mod\ n) (0 \leq r \lt q)$</li>
+<li><p>具体做法：</p>
+<blockquote>
+<p>参考博客：<a href="https://blog.csdn.net/ECNU_LZJ/article/details/72675595" target="_blank" rel="noopener">Miller-Rabin素性测试算法详解</a></p>
+</blockquote>
+<ul>
+<li>令$n - 1 = 2 ^ q \times  m$</li>
+<li>随机选取整数$a(0\lt a \lt n)$ ,由费马小定理$(a^{2^q\times m} = a ^ {n - 1}) \equiv 1(mod\ n) $. </li>
+<li>由随机探测定理可得: $a^{2^{q-1}\times  m} \equiv 1(mod\ n)\text{  或者  }a^{2^{q-1}\times  m} \equiv n - 1(mod\ n)$. </li>
+<li>若 $a^{2^{q-1}\times m} \equiv 1(mod\ n)$成立， 则再次由二次探测定理可得:  $a^{2^{q-2}\times m} \equiv 1(mod\ n)$ 或者$a^{2^{q-2}\times m} \equiv n - 1(mod\ n)$….. </li>
+<li>如此反复应用二次探测定理， 直到某一步$a^m \equiv 1(mod\ n)$或者$a^{2^r\times m} \equiv n - 1(mod\ n) (0 \leq r \lt q)$</li>
+</ul>
+</li>
+<li>该算法的具体做法：<br>序列$a^m(mod\ n), a^{2m}(mod\ n), a^{3m}(mod\ n)… a^{2^{q}\times m} (mod\ n)$。 若$a^m \equiv 1(mod\ n)$ 或者存在某个$a^{2^r\times m} \equiv n - 1(mod\ n)$, 则n通过Miller测试。</li>
+</ol>
+<h2 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h2><blockquote>
+<p>参考模板: <a href="https://github.com/zerolfx/template/blob/master/2-%E6%95%B0%E5%AD%A6.md" target="_blank" rel="noopener">华东师范模板</a> </p>
+</blockquote>
+<ul>
+<li>int 范围内只需检查 2, 7, 61</li>
+<li>long long 范围 2, 325, 9375, 28178, 450775, 9780504, 1795265022</li>
+<li>3E15内 2, 2570940, 880937, 610386380, 4130785767</li>
+<li>4E13内 2, 2570940, 211991001, 3749873356    </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zzzzone.top/2018/08/23/Python学习笔记-3-安装Pygame/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -742,8 +985,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-12T22:21:22+08:00">
-                2018-08-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-30T23:44:04+08:00">
+                2018-08-30
               </time>
             
           </span>
@@ -791,7 +1034,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  382
+                  536
                 </span>
               
 
@@ -807,7 +1050,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -2977,203 +3220,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zzzzone.top/2018/05/07/2018-5-5组队训练总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZZZZone">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZZZZone的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/07/2018-5-5组队训练总结/" itemprop="url">2018-5-5组队训练总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T22:32:30+08:00">
-                2018-05-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-04T20:31:00+08:00">
-                2018-06-04
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/07/2018-5-5组队训练总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/07/2018-5-5组队训练总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/05/07/2018-5-5组队训练总结/" class="leancloud_visitors" data-flag-title="2018-5-5组队训练总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,998
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天打得题是<a href="http://codeforces.com/gym/101635/attachments" target="_blank" rel="noopener">SWERC 2017</a>西欧区域赛的题目， 一共过了4道题， 分别是A， E， F， J。 最后卡了K没过。 模拟现场榜单的话排31， 大概是铜上游的位置吧。</p>
-<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>首先上来我先读的C题， 题意比较短， 但最后发现是个很难的题， </p>
-<blockquote>
-<p>C题目大意： 给一个$n \times m $ 的矩阵，$(1\le n \le 8, 1\le m \le 10^ {18})$ 让你用$1\times1$ 或者$1\times2$或者$2\times1$的方格全部铺满， 不能覆盖， 问方案数模$10^ 9$ </p>
-</blockquote>
-<p>题还没读完的时候， 发现F是道水题， 4分钟的时候有三个一血。。  正好TRDD在读F， 所以我就继续看C。TR跟大佬叙述了题意之后， 应该是没太理清题意， 大佬思考了一下发现题目并不简单， 甩给我又重读了一遍， 发现漏了一个重要条件（就是n个矩形是由大的$W \times L$分出来的）。</p>
-<blockquote>
-<p> F题目大意： 一个$W \times L\ \ (1 \le  W, L \le 10\ 000)$的矩形被分成了n$(1 \le n \le 5\ 000\ 000)$块小矩形， 这n个矩形的长宽分别为$w_i, l_i (1\le w_i, l_i \le 10\ 000)$. 给定W， 输出L。</p>
-</blockquote>
-<p>F题在19分钟过的。 这时候许多队已经过了F了，  而且安神也已经两题了。 </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/07/2018-5-5组队训练总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3228,7 +3274,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3250,7 +3296,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -3386,7 +3432,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.1k</span>
+    <span title="Site words total count">22.6k</span>
   
 </div>
 
