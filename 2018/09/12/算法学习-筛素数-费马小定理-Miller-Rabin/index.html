@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="欧拉筛素数复杂度简单证明 费马小定理两种证明方法 Miller-Rabin素性测试">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-15T14:21:08.000Z">
+<meta property="og:updated_time" content="2018-09-15T14:34:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习-筛素数&amp;费马小定理&amp;Miller-Rabin">
 <meta name="twitter:description" content="欧拉筛素数复杂度简单证明 费马小定理两种证明方法 Miller-Rabin素性测试">
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-15T22:21:08+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-15T22:34:45+08:00">
                 2018-09-15
               </time>
             
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,386
+                  1,566
                 </span>
               
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -463,7 +463,9 @@
 <p>首先, 给定一个小于p的正整数的集合$x{1,…,p-1}$, 明显p与集合中所有的元素互质<br>用a乘以集合中所有的元素并对p取模, 那么我们可以得到集合$X{ a \% p, 2a\%p, 3a\%p, … , (p-1)a\%p}$<br>明显X中所有的元素都小于p并且由于a不能整除p, 所以X中所有的元素都不等于0并且各个元素都不相等<br>这说明X和x的构成相同, 只是元素的顺序不同，所以将两个集合的元素分别相乘。</p>
 <p>$(p-1)! (mod\ p) = a^{(p-1)} \times  (p-1)! (mod\ p)$</p>
 <p>两边约去$(p-1)!$即可得到费马小定理</p>
-<h2 id="数学归纳法："><a href="#数学归纳法：" class="headerlink" title="数学归纳法："></a>数学归纳法：</h2><p>参考书: <strong>算法设计编程实验</strong></p>
+<h2 id="数学归纳法："><a href="#数学归纳法：" class="headerlink" title="数学归纳法："></a>数学归纳法：</h2><blockquote>
+<p>参考书: <strong>算法设计编程实验</strong></p>
+</blockquote>
 <ol>
 <li>当$a == 1$  时, $a ^ {n - 1}  \equiv 1$成立。</li>
 <li>假设当$a$为某正整数时， $a ^ n  \equiv a (mod\ n)$ 成立， 考虑$(a+1)^n $和$a + 1$ 是否同余。<ul>
@@ -493,15 +495,15 @@
 <ul>
 <li>令$n - 1 = 2 ^ q \times  m$</li>
 <li>随机选取整数$a(0\lt a \lt n)$ ,由费马小定理$(a^{2^q\times m} = a ^ {n - 1}) \equiv 1(mod\ n) $. </li>
-<li>由随机探测定理可得: $a^{2^{q-1}\times  m} \equiv 1(mod\ n)\text{  或者  }a^{2^{q-1}\times  m} \equiv n - 1(mod\ n)$. </li>
-<li>若 $a^{2^{q-1}\times m} \equiv 1(mod\ n)$成立， 则再次由二次探测定理可得:  $a^{2^{q-2}\times m} \equiv 1(mod\ n)$ 或者$a^{2^{q-2}\times m} \equiv n - 1(mod\ n)$….. </li>
+<li>由二次探测定理可得:<br>$a^{2^{q-1}\times  m} \equiv 1(mod\ n)\text{  或者  }a^{2^{q-1}\times  m} \equiv n - 1(mod\ n)$. </li>
+<li>若 $a^{2^{q-1}\times m} \equiv 1(mod\ n)$成立， 则再次由二次探测定理可得:<br>$a^{2^{q-2}\times m} \equiv 1(mod\ n)$ 或者$a^{2^{q-2}\times m} \equiv n - 1(mod\ n)$….. </li>
 <li>如此反复应用二次探测定理， 直到某一步$a^m \equiv 1(mod\ n)$或者$a^{2^r\times m} \equiv n - 1(mod\ n) (0 \leq r \lt q)$</li>
 </ul>
 </li>
-<li>该算法的具体做法：<br>序列$a^m(mod\ n), a^{2m}(mod\ n), a^{3m}(mod\ n)… a^{2^{q}\times m} (mod\ n)$。 若$a^m \equiv 1(mod\ n)$ 或者存在某个$a^{2^r\times m} \equiv n - 1(mod\ n)$, 则n通过Miller测试。</li>
+<li>该算法的具体做法：<br>序列$a^m(mod\ n), a^{2m}(mod\ n), a^{3m}(mod\ n)… a^{2^{q}\times m} (mod\ n)$。<br>将序列从小枚举到大， 若$a^m \equiv 1(mod\ n)$ 或者存在某个$a^{2^r\times m} \equiv n - 1(mod\ n)$, 则n通过Miller测试。</li>
 </ol>
 <h2 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h2><blockquote>
-<p>参考模板: <a href="https://github.com/zerolfx/template/blob/master/2-%E6%95%B0%E5%AD%A6.md" target="_blank" rel="noopener">华东师范模板</a> </p>
+<p>参考模板: <a href="https://github.com/zerolfx/template/blob/master/2-%E6%95%B0%E5%AD%A6.md" target="_blank" rel="noopener">华东师范模板</a><br>《算法设计编程实验》 吴永辉 王建德</p>
 </blockquote>
 <ul>
 <li>int 范围内只需检查 2, 7, 61</li>
@@ -509,6 +511,7 @@
 <li>3E15内 2, 2570940, 880937, 610386380, 4130785767</li>
 <li>4E13内 2, 2570940, 211991001, 3749873356    </li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">fast_pow</span><span class="params">(LL x, LL y, LL Mod)</span></span>&#123; <span class="comment">// 快速幂</span></span><br><span class="line">	LL res = <span class="number">1L</span>L;</span><br><span class="line">	<span class="keyword">while</span>(y)&#123;</span><br><span class="line">		<span class="keyword">if</span>(y &amp; <span class="number">1</span>) res = (res * x) % Mod;</span><br><span class="line">		x = (x * x) % Mod;</span><br><span class="line">		y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Miller</span><span class="params">(LL x, LL n)</span></span>&#123; <span class="comment">// 选取以x为底, 判断n是否可能是素数</span></span><br><span class="line">	LL y = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!(y &amp; <span class="number">1</span>)) y &gt;&gt;= <span class="number">1</span>; <span class="comment">// n - 1 = (d * 2 ^ s) 将y = d</span></span><br><span class="line">	x = fast_pow(x, y, n); <span class="comment">// x = x ^ d</span></span><br><span class="line">	<span class="keyword">while</span>(y &lt; n - <span class="number">1</span> &amp;&amp; x != <span class="number">1</span> &amp;&amp; x != n - <span class="number">1</span>)&#123;</span><br><span class="line">		x = ( x * x) % n;</span><br><span class="line">		y &lt;&lt;= <span class="number">1L</span>L;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x == n - <span class="number">1</span> || (y &amp; <span class="number">1</span>) == <span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime32</span><span class="params">(LL n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">2</span> || n == <span class="number">7</span> || n == <span class="number">61</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">1</span> || (n &amp; <span class="number">1</span>) == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">return</span> Miller(<span class="number">2</span>, n) &amp;&amp; Miller(<span class="number">7</span>, n) &amp;&amp; Miller(<span class="number">61</span>, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -805,7 +808,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.6k</span>
+    <span title="Site words total count">22.8k</span>
   
 </div>
 
