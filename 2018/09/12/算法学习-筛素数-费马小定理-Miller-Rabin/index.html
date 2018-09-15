@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="欧拉筛:复杂度: $O(n)$ 12345678910void getPrime(int n, int &amp;amp;tot, int ans[])&amp;#123;	memset(valid, true, sizeof(valid));	for(int i = 2; i &amp;lt;= n; i++)&amp;#123;		if(valid[i]) ans[++tot] = i;		for(int j = 1; j">
+<meta name="description" content="欧拉筛素数复杂度简单证明 费马小定理两种证明方法 Miller-Rabin素性测试">
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法学习-筛素数&amp;费马小定理&amp;Miller-Rabin">
 <meta property="og:url" content="http://zzzzone.top/2018/09/12/算法学习-筛素数-费马小定理-Miller-Rabin/index.html">
 <meta property="og:site_name" content="ZZZZone的博客">
-<meta property="og:description" content="欧拉筛:复杂度: $O(n)$ 12345678910void getPrime(int n, int &amp;amp;tot, int ans[])&amp;#123;	memset(valid, true, sizeof(valid));	for(int i = 2; i &amp;lt;= n; i++)&amp;#123;		if(valid[i]) ans[++tot] = i;		for(int j = 1; j">
+<meta property="og:description" content="欧拉筛素数复杂度简单证明 费马小定理两种证明方法 Miller-Rabin素性测试">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-15T13:50:37.000Z">
+<meta property="og:updated_time" content="2018-09-15T14:21:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习-筛素数&amp;费马小定理&amp;Miller-Rabin">
-<meta name="twitter:description" content="欧拉筛:复杂度: $O(n)$ 12345678910void getPrime(int n, int &amp;amp;tot, int ans[])&amp;#123;	memset(valid, true, sizeof(valid));	for(int i = 2; i &amp;lt;= n; i++)&amp;#123;		if(valid[i]) ans[++tot] = i;		for(int j = 1; j">
+<meta name="twitter:description" content="欧拉筛素数复杂度简单证明 费马小定理两种证明方法 Miller-Rabin素性测试">
 
 
 
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-15T21:50:37+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-15T22:21:08+08:00">
                 2018-09-15
               </time>
             
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,356
+                  1,386
                 </span>
               
 
@@ -441,10 +441,17 @@
       
 
       
-        <h1 id="欧拉筛"><a href="#欧拉筛" class="headerlink" title="欧拉筛:"></a>欧拉筛:</h1><p><strong>复杂度:</strong> $O(n)$</p>
+        <ol>
+<li><strong>欧拉筛素数复杂度简单证明</strong></li>
+<li><strong>费马小定理两种证明方法</strong></li>
+<li><strong>Miller-Rabin素性测试</strong></li>
+</ol>
+<a id="more"></a>
+<h1 id="欧拉筛"><a href="#欧拉筛" class="headerlink" title="欧拉筛:"></a>欧拉筛:</h1><p><strong>复杂度:</strong> $O(n)$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getPrime</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> &amp;tot, <span class="keyword">int</span> ans[])</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(valid, <span class="literal">true</span>, <span class="keyword">sizeof</span>(valid));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(valid[i]) ans[++tot] = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * ans[j] &lt;= n; j++)&#123;</span><br><span class="line">			valid[i*ans[j]] = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(i%ans[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>保证每一个合数都只被他最小的质因子筛掉， 从而保证复杂度为$O(n)$</p>
 <h2 id="证明"><a href="#证明" class="headerlink" title="证明:"></a>证明:</h2><p>如果 $i \% ans[j] == 0$, 说明$i$是合数, 那么之后枚举的$i \times  ans[j’]$都是$i$的倍数, 也是$i$的质因子$ans[j]$的倍数, 就不需要现在将它筛掉, 之后随着$i$的增大, 当内层循环再次枚举到对应的质因子$ans[j]$之后, 将其筛掉即可.</p>
+<hr>
 <h1 id="费马小定理（Fermat’s-Little-Theorem）"><a href="#费马小定理（Fermat’s-Little-Theorem）" class="headerlink" title="费马小定理（Fermat’s Little Theorem）"></a>费马小定理（Fermat’s Little Theorem）</h1><p><strong>定理:</strong> 当$p$为质数时, 并且$gcd(a, b) == 1$时 $a ^ p - 1 \equiv 1(mod \ p)$.</p>
 <h2 id="证明方法一：-同余法"><a href="#证明方法一：-同余法" class="headerlink" title="证明方法一： 同余法"></a>证明方法一： 同余法</h2><h3 id="通俗理解版-一："><a href="#通俗理解版-一：" class="headerlink" title="通俗理解版 一："></a>通俗理解版 一：</h3><blockquote>
 <p>参考: <a href="https://www.cnblogs.com/flipped/p/5218037.html" target="_blank" rel="noopener">水郁 - 费马小定理证明</a></p>
@@ -460,7 +467,7 @@
 <ol>
 <li>当$a == 1$  时, $a ^ {n - 1}  \equiv 1$成立。</li>
 <li>假设当$a$为某正整数时， $a ^ n  \equiv a (mod\ n)$ 成立， 考虑$(a+1)^n $和$a + 1$ 是否同余。<ul>
-<li>$(a+1)^n = a^n + (^n<em>1)a^{n-1} + (^n_2)a^{n-2} + … + (^n</em>{n-1})a^1 + 1$</li>
+<li>$(a+1)^n = a^n + (^n_1)a^{n-1} + (^n_2)a^{n-2} +…+(^n_1)a^1 + 1$</li>
 <li>因为$n$是质数， 所以等号右边的$(^n_i)a^{n-i}$ 都是$n$的倍数。</li>
 <li>得 $(a+1) ^ n  \equiv  (a^n + 1) (mod\ n)$</li>
 <li>因为我们假设  $a ^ n  \equiv a (mod\ n)$ 成立</li>
@@ -469,6 +476,7 @@
 </li>
 <li>所以$a^{n-1} \equiv 1 (mod \ n)$成立 </li>
 </ol>
+<hr>
 <h1 id="Miller-Rabin-素性测试"><a href="#Miller-Rabin-素性测试" class="headerlink" title="Miller-Rabin 素性测试"></a>Miller-Rabin 素性测试</h1><p>Miller—Rabin算法基于费马小定理</p>
 <p>即$a^{n-1} \equiv 1(mod \ n)$ </p>
 <p>所以我们测试一个数n是不是素数， 只需要随机选择一些数字a判断是否满足， n是素数一定满足$a^{n-1} \equiv 1(mod \ n)$ ， 但满足$a^{n-1} \equiv 1(mod \ n)$ 不一定是素数。 所以要选择尽可能多的a进行测试。</p>
