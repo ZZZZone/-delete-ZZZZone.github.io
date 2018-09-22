@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[算法学习-欧拉函数]]></title>
+    <url>%2F2018%2F09%2F20%2F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[参考博客： 浅谈欧拉函数 什么是欧拉函数欧拉函数$\phi(x)$表示小于x的整数中与$x$互质数的个数 如何计算欧拉函数\phi(x) = \begin{cases} x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\ 1 & x = 1 & \end{cases}其中$p_1, p_2,.. p_n$是x所有质因数。 积性函数积性函数对于两个正整数$n,m$, 当$n$和$m$互质时， 满足$f(n\times m) = f(n) \times f(m)$则称$f(x)$是积性函数。 完全积性函数对于任意两个正整， 都满足$f(n\times m) = f(n) \times f(m)$则称$f(x)$是完全积性函数。 欧拉函数的性质 对于质数$p$, $\phi(p) = p - 1$. 若$p$为质数， $n = p^k$， 则$\phi(n) = p^k - p^{k-1}$ 简单证明：\begin{split} \because & \text{与}p^k\text{互质的数只有}p \\ \therefore& \phi(p^k) = p^k * \prod(1-\frac{1}{p_i}) \\ &= p^k \times (1-\frac{1}{p}) \\ &= p^k - p^{k-1} \end{split} 欧拉函数是积性函数， 但不是完全积性函数。 当$n \gt 2$时， $\phi(n)$是偶数。 $\sum _{d | n} \phi(d) = n$, 即$n$的因子的欧拉函数之和为n。 当$n \gt 1$时， 1···n中与n互质的整数和为$\frac{n\phi(n)}{2}$. 欧拉函数的求法1. $\sqrt{(n)}$求n的欧拉函数引入性质2， 若$n = p^k, \phi(n) = p^k * (p-1)$, 可得： \begin{split} \phi(n) &= \phi(p_1^{r_1} · p_2^{r_2} ·...·p_k^{r_k}) \\ &= \phi(p_1^{r_1}) · \phi(p_2^{r_2}) ... \phi(p_k^{r_k}) \\ &= p_1^{r_1-1}(p_1 - 1)*p_2^{r_2-1}(p_2-1)*...*p_k^{r_k-1}(p_k-1) \\ &= \frac{n}{\prod_{i=1}^k p_i} * \prod_{i=1}^k(p_i-1) \\ &= n * \prod_{i=1}^k(\frac{p_i-1}{p_i}) \end{split}1234567891011int phi(int x)&#123; int ans = x; for(int i = 2; i*i &lt;= x; i++)&#123; if(x % i == 0)&#123; ans = ans / i * (i-1); while(x % i == 0) x /= i; &#125; &#125; if(x &gt; 1) ans = ans / x * (x-1); return ans;&#125; 2. 欧拉筛求欧拉函数 i表示当前做到的这个数，prime[j]表示当前做到的质数，那要被筛掉的合数就是i*prime[j]。 若prime[j]在这个合数里只出现一次（i%prime[j]!=0），也就是i和prime[j]互质时，则根据欧拉函数的积性函数的性质，phi[i prime[j]]=phi[i] phi[prime[j]]。 若prime[j]在这个合数里出现了不止一次（i%prime[j]=0），也就是这个合数的所有质因子都在i里出现过，那么根据公式，$\phi(iprime[j]) = prime[j] i \prod_{k = 1}^n(1 - \frac{1}{p_k}) = \phi(i) prime[j]$ 复杂度为O(n)。 12345678910111213141516171819202122void euler(int n)&#123; phi[1]=1;//1要特判 for (int i=2;i&lt;=n;i++) &#123; if (flag[i]==0)//这代表i是质数 &#123; prime[++num]=i; phi[i]=i-1; &#125; for (int j=1;j&lt;=num&amp;&amp;prime[j]*i&lt;=n;j++)//经典的欧拉筛写法 &#123; flag[i*prime[j]]=1;//先把这个合数标记掉 if (i%prime[j]==0) &#123; phi[i*prime[j]]=phi[i]*prime[j];//若prime[j]是i的质因子，则根据计算公式，i已经包括i*prime[j]的所有质因子 break;//经典欧拉筛的核心语句，这样能保证每个数只会被自己最小的因子筛掉一次 &#125; else phi[i*prime[j]]=phi[i]*phi[prime[j]];//利用了欧拉函数是个积性函数的性质 &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>算法学习</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+        <tag>算法学习</tag>
+        <tag>欧拉函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[算法学习-拓展欧几里得]]></title>
     <url>%2F2018%2F09%2F18%2F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%2F</url>
     <content type="text"><![CDATA[参考了一篇很不错的博客: 拓展欧几里得小结]]></content>
