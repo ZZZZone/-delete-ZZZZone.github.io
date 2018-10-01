@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="参考博客： 浅谈欧拉函数  什么是欧拉函数欧拉函数$\phi(x)$表示小于x的整数中与$x$互质数的个数 如何计算欧拉函数\phi(x) = \begin{cases}  x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) &amp; x &amp;gt; 1 &amp;\\ 1 &amp; x = 1 &amp;  \end{cases}其中$p_1, p_2,.. p_n$是x所有质因数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-22T13:03:54.000Z">
+<meta property="og:updated_time" content="2018-10-01T11:44:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习-欧拉函数">
 <meta name="twitter:description" content="参考博客： 浅谈欧拉函数  什么是欧拉函数欧拉函数$\phi(x)$表示小于x的整数中与$x$互质数的个数 如何计算欧拉函数\phi(x) = \begin{cases}  x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) &amp; x &amp;gt; 1 &amp;\\ 1 &amp; x = 1 &amp;  \end{cases}其中$p_1, p_2,.. p_n$是x所有质因数。">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-22T21:03:54+08:00">
-                2018-09-22
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-01T19:44:19+08:00">
+                2018-10-01
               </time>
             
           </span>
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  695
+                  703
                 </span>
               
 
@@ -456,7 +456,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
 <li>对于质数$p$, $\phi(p) = p - 1$.  </li>
 <li>若$p$为质数， $n = p^k$， 则$\phi(n) = p^k - p^{k-1}$  <ul>
 <li><strong>简单证明</strong>：<script type="math/tex; mode=display">\begin{split}
-\because & \text{与}p^k\text{互质的数只有}p \\ 
+\because & p^k\text{的因子只有}p \\ 
 \therefore& \phi(p^k)  = p^k * \prod(1-\frac{1}{p_i}) \\
 &= p^k \times (1-\frac{1}{p}) \\
 &= p^k - p^{k-1}
@@ -478,9 +478,9 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
 \end{split}</script><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">phi</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i*i &lt;= x; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">            ans = ans / i * (i<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">while</span>(x % i == <span class="number">0</span>) x /= i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x &gt; <span class="number">1</span>) ans = ans / x * (x<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="2-欧拉筛求欧拉函数"><a href="#2-欧拉筛求欧拉函数" class="headerlink" title="2. 欧拉筛求欧拉函数"></a>2. 欧拉筛求欧拉函数</h3><ul>
-<li>i表示当前做到的这个数，prime[j]表示当前做到的质数，那要被筛掉的合数就是i*prime[j]。</li>
-<li>若prime[j]在这个合数里只出现一次（i%prime[j]!=0），也就是i和prime[j]互质时，则根据欧拉函数的积性函数的性质，phi[i <em> prime[j]]=phi[i] </em> phi[prime[j]]。</li>
-<li>若prime[j]在这个合数里出现了不止一次（i%prime[j]=0），也就是这个合数的所有质因子都在i里出现过，那么根据公式，$\phi(i<em>prime[j]) = prime[j] </em> i <em> \prod_{k = 1}^n(1 - \frac{1}{p_k}) = \phi(i) </em> prime[j]$</li>
+<li>i表示当前做到的这个数，prime[j]表示当前做到的质数，那要被筛掉的合数就是$i\times prime[j]$。</li>
+<li>若prime[j]在这个合数里只出现一次$(i \% prime[j]!=0)$，也就是i和prime[j]互质时，则根据欧拉函数的积性函数的性质，$phi[i \times prime[j]]=phi[i] \times phi[prime[j]]$。</li>
+<li>若prime[j]在这个合数里出现了不止一次$(i\%prime[j]=0)$，也就是这个合数的所有质因子都在i里出现过，那么根据公式，$\phi(i\times prime[j]) = prime[j] \times i \times \prod_{k = 1}^n(1 - \frac{1}{p_k}) = \phi(i) \times prime[j]$</li>
 <li>复杂度为O(n)。 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">euler</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    phi[<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//1要特判 </span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag[i]==<span class="number">0</span>)<span class="comment">//这代表i是质数 </span></span><br><span class="line">        &#123;</span><br><span class="line">            prime[++num]=i;</span><br><span class="line">            phi[i]=i<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=num&amp;&amp;prime[j]*i&lt;=n;j++)<span class="comment">//经典的欧拉筛写法 </span></span><br><span class="line">        &#123;</span><br><span class="line">            flag[i*prime[j]]=<span class="number">1</span>;<span class="comment">//先把这个合数标记掉 </span></span><br><span class="line">            <span class="keyword">if</span> (i%prime[j]==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                phi[i*prime[j]]=phi[i]*prime[j];<span class="comment">//若prime[j]是i的质因子，则根据计算公式，i已经包括i*prime[j]的所有质因子 </span></span><br><span class="line">                <span class="keyword">break</span>;<span class="comment">//经典欧拉筛的核心语句，这样能保证每个数只会被自己最小的因子筛掉一次 </span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> phi[i*prime[j]]=phi[i]*phi[prime[j]];<span class="comment">//利用了欧拉函数是个积性函数的性质 </span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
