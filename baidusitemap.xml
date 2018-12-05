@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://zzzzone.top/2018/12/05/2018-12-05/</loc>
+    <lastmod>2018-12-05T09:08:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>终端基本技巧学习</title>
+        <pubTime>2018-12-05T09:00:28.000Z</pubTime>
+        
+        <tag>终端</tag>
+         
+        <tag>vim</tag>
+         
+         
+           
+             
+              <breadCrumb title="随手笔记" url="http://zzzzone.top/categories/%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zzzzone.top/2018/10/01/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2018-10-01T14:41:04.000Z</lastmod>
+    <lastmod>2018-10-07T03:08:03.000Z</lastmod>
     <data>
         <display>
         <title>算法学习-莫比乌斯函数</title>
@@ -405,9 +427,9 @@
         <title>vim操作命令学习整理</title>
         <pubTime>2018-05-15T15:56:59.000Z</pubTime>
         
-        <tag>学习笔记</tag>
-         
         <tag>vim</tag>
+         
+        <tag>学习笔记</tag>
          
          
            

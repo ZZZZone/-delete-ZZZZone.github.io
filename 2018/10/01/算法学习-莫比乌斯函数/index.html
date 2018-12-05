@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="莫比乌斯函数定义：若将$n$表示为分解质因数$n = p_1^{t_1} \times p_2^{t_2} … p_k^{t_k}$ 则：\mu(n)\begin{cases} 1 &amp; n = 1\\ 0 &amp; n有平方因子 \\ (-1)^k &amp; 其他\end{cases}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-01T14:41:04.000Z">
+<meta property="og:updated_time" content="2018-10-07T03:08:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习-莫比乌斯函数">
 <meta name="twitter:description" content="莫比乌斯函数定义：若将$n$表示为分解质因数$n = p_1^{t_1} \times p_2^{t_2} … p_k^{t_k}$ 则：\mu(n)\begin{cases} 1 &amp; n = 1\\ 0 &amp; n有平方因子 \\ (-1)^k &amp; 其他\end{cases}">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-01T22:41:04+08:00">
-                2018-10-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-07T11:08:03+08:00">
+                2018-10-07
               </time>
             
           </span>
@@ -446,7 +446,7 @@
 <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p><strong>$O(\sqrt n)$求n的约数的莫比乌斯函数值</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 求n的约数的莫比乌斯函数 </span></span><br><span class="line"><span class="comment">// 复杂度O(sqrt(n))</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; moebius(<span class="keyword">int</span> n)&#123;</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; res;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prim;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n % i == <span class="number">0</span>) prim.push_back(i);</span><br><span class="line">		<span class="keyword">while</span>(n % i == <span class="number">0</span>) n /= i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n != <span class="number">1</span>) prim.push_back(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, m = prim.size(); i &lt; (<span class="number">1</span> &lt;&lt; m); i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> val = <span class="number">1</span>, key = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i &gt;&gt; j &amp; <span class="number">1</span>)&#123;</span><br><span class="line">				val = -val;</span><br><span class="line">				key *= prim[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		res[key] = val;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>$O(n)$筛莫比乌斯函数</strong>  </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> is_prime[MAXN+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> su[MAXN+<span class="number">5</span>], num;</span><br><span class="line"><span class="keyword">int</span> mobi[MAXN+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">moebius</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	mobi[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">memset</span>(is_prime, <span class="literal">true</span>, <span class="keyword">sizeof</span>(is_prime));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(is_prime[i])&#123;</span><br><span class="line">			su[++num] = i;</span><br><span class="line">			mobi[i] = <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= num; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i * su[j] &gt; n) <span class="keyword">break</span>;</span><br><span class="line">			is_prime[i * su[j]] = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(i % su[j])&#123;</span><br><span class="line">				mobi[i*su[j]] -= mobi[i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				mobi[i*su[j]] = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cout</span> &lt;&lt; mobi[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> is_prime[MAXN+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> su[MAXN+<span class="number">5</span>], num;</span><br><span class="line"><span class="keyword">int</span> mobi[MAXN+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">moebius</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	mobi[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">memset</span>(is_prime, <span class="literal">true</span>, <span class="keyword">sizeof</span>(is_prime));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(is_prime[i])&#123;</span><br><span class="line">			su[++num] = i;</span><br><span class="line">			mobi[i] = <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= num; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i * su[j] &gt; n) <span class="keyword">break</span>;</span><br><span class="line">			is_prime[i * su[j]] = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(i % su[j])&#123;</span><br><span class="line">				mobi[i*su[j]] = -mobi[i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				mobi[i*su[j]] = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cout</span> &lt;&lt; mobi[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="性质一："><a href="#性质一：" class="headerlink" title="性质一："></a>性质一：</h2><p>对于正整数$n$满足<script type="math/tex">\sum_{d | n}\mu(d) = \begin{cases} 1 & n = 1 \\ 0 & n > 1\end{cases}</script></p>
 <h3 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h3><ul>
 <li>当$n = 1$显然成立。</li>
@@ -501,6 +501,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/05/2018-12-05/" rel="prev" title="终端基本技巧学习">
+                终端基本技巧学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -584,7 +588,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -595,7 +599,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -606,7 +610,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -758,7 +762,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.9k</span>
+    <span title="Site words total count">24.0k</span>
   
 </div>
 

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[终端基本技巧学习]]></title>
+    <url>%2F2018%2F12%2F05%2F2018-12-05%2F</url>
+    <content type="text"><![CDATA[终端修改文件名 1mv [旧文件名] [新文件名] open 命令 123open . # 打开当前目录open [路径]open [文件] vim比较文件 1vim -d filename1 filename2]]></content>
+      <categories>
+        <category>随手笔记</category>
+      </categories>
+      <tags>
+        <tag>终端</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[算法学习-莫比乌斯函数]]></title>
     <url>%2F2018%2F10%2F01%2F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[莫比乌斯函数定义：若将$n$表示为分解质因数$n = p_1^{t_1} \times p_2^{t_2} … p_k^{t_k}$ 则：\mu(n)\begin{cases} 1 & n = 1\\ 0 & n有平方因子 \\ (-1)^k & 其他\end{cases} $O(\sqrt n)$求n的约数的莫比乌斯函数值 12345678910111213141516171819202122// 求n的约数的莫比乌斯函数 // 复杂度O(sqrt(n))map&lt;int, int&gt; moebius(int n)&#123; map&lt;int, int&gt; res; vector&lt;int&gt; prim; for(int i = 2; i * i &lt;= n; i++)&#123; if(n % i == 0) prim.push_back(i); while(n % i == 0) n /= i; &#125; if(n != 1) prim.push_back(n); for(int i = 0, m = prim.size(); i &lt; (1 &lt;&lt; m); i++)&#123; int val = 1, key = 1; for(int j = 0; j &lt; m; j++)&#123; if(i &gt;&gt; j &amp; 1)&#123; val = -val; key *= prim[j]; &#125; &#125; res[key] = val; &#125; return res;&#125; $O(n)$筛莫比乌斯函数 1234567891011121314151617181920212223242526bool is_prime[MAXN+5];int su[MAXN+5], num;int mobi[MAXN+5];void moebius(int n)&#123; mobi[1] = 1; memset(is_prime, true, sizeof(is_prime)); for(int i = 2; i &lt;= n; i++)&#123; if(is_prime[i])&#123; su[++num] = i; mobi[i] = -1; &#125; for(int j = 1; j &lt;= num; j++)&#123; if(i * su[j] &gt; n) break; is_prime[i * su[j]] = false; if(i % su[j])&#123; mobi[i*su[j]] -= mobi[i]; &#125; else&#123; mobi[i*su[j]] = 0; break; &#125; &#125; &#125; for(int i = 1; i &lt;= n; i++) cout &lt;&lt; mobi[i] &lt;&lt; ' ';&#125; 性质一：对于正整数$n$满足\sum_{d | n}\mu(d) = \begin{cases} 1 & n = 1 \\ 0 & n > 1\end{cases} 证明： 当$n = 1$显然成立。 当$n &gt; 2$时， 如果$d$中包含平方因子， 那么其$\mu(d) == 0$, 所以设$n’ = p1p2p3…pk$, 对于所有的不包含平方因子的$d$， 都满足$d | n’$. 所以得: \sum_{d|n}\mu(d) = \sum_{d|n'}\mu(d) = \sum_{i=0}^kC_k^i(1-1)^k = 0 证毕。 莫比乌斯反演若定义在正整数集上的两个函数， $f(n)$和$g(n)$ 满足对任意的n有： f(n) = \sum_{d|n}g(d)则有: g(n) = \sum_{d|n}\mu (d)f(\frac{n}{d})简单运用:莫比乌斯函数和欧拉函数的关系 \frac{\phi(n)}{n} = \sum_{d|n}\frac{\mu(d)}{d}变形为： \phi(n) = \sum_{d|n}\mu (d)\frac n d]]></content>
+    <content type="text"><![CDATA[莫比乌斯函数定义：若将$n$表示为分解质因数$n = p_1^{t_1} \times p_2^{t_2} … p_k^{t_k}$ 则：\mu(n)\begin{cases} 1 & n = 1\\ 0 & n有平方因子 \\ (-1)^k & 其他\end{cases} $O(\sqrt n)$求n的约数的莫比乌斯函数值 12345678910111213141516171819202122// 求n的约数的莫比乌斯函数 // 复杂度O(sqrt(n))map&lt;int, int&gt; moebius(int n)&#123; map&lt;int, int&gt; res; vector&lt;int&gt; prim; for(int i = 2; i * i &lt;= n; i++)&#123; if(n % i == 0) prim.push_back(i); while(n % i == 0) n /= i; &#125; if(n != 1) prim.push_back(n); for(int i = 0, m = prim.size(); i &lt; (1 &lt;&lt; m); i++)&#123; int val = 1, key = 1; for(int j = 0; j &lt; m; j++)&#123; if(i &gt;&gt; j &amp; 1)&#123; val = -val; key *= prim[j]; &#125; &#125; res[key] = val; &#125; return res;&#125; $O(n)$筛莫比乌斯函数 1234567891011121314151617181920212223242526bool is_prime[MAXN+5];int su[MAXN+5], num;int mobi[MAXN+5];void moebius(int n)&#123; mobi[1] = 1; memset(is_prime, true, sizeof(is_prime)); for(int i = 2; i &lt;= n; i++)&#123; if(is_prime[i])&#123; su[++num] = i; mobi[i] = -1; &#125; for(int j = 1; j &lt;= num; j++)&#123; if(i * su[j] &gt; n) break; is_prime[i * su[j]] = false; if(i % su[j])&#123; mobi[i*su[j]] = -mobi[i]; &#125; else&#123; mobi[i*su[j]] = 0; break; &#125; &#125; &#125; for(int i = 1; i &lt;= n; i++) cout &lt;&lt; mobi[i] &lt;&lt; ' ';&#125; 性质一：对于正整数$n$满足\sum_{d | n}\mu(d) = \begin{cases} 1 & n = 1 \\ 0 & n > 1\end{cases} 证明： 当$n = 1$显然成立。 当$n &gt; 2$时， 如果$d$中包含平方因子， 那么其$\mu(d) == 0$, 所以设$n’ = p1p2p3…pk$, 对于所有的不包含平方因子的$d$， 都满足$d | n’$. 所以得: \sum_{d|n}\mu(d) = \sum_{d|n'}\mu(d) = \sum_{i=0}^kC_k^i(1-1)^k = 0 证毕。 莫比乌斯反演若定义在正整数集上的两个函数， $f(n)$和$g(n)$ 满足对任意的n有： f(n) = \sum_{d|n}g(d)则有: g(n) = \sum_{d|n}\mu (d)f(\frac{n}{d})简单运用:莫比乌斯函数和欧拉函数的关系 \frac{\phi(n)}{n} = \sum_{d|n}\frac{\mu(d)}{d}变形为： \phi(n) = \sum_{d|n}\mu (d)\frac n d]]></content>
       <categories>
         <category>算法学习</category>
       </categories>
@@ -200,8 +212,8 @@
         <category>vim</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
         <tag>vim</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
