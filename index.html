@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T17:08:40+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T21:18:07+08:00">
                 2018-12-05
               </time>
             
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  46
+                  76
                 </span>
               
 
@@ -448,6 +448,10 @@
 <li>终端修改文件名</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv [旧文件名]  [新文件名]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cp 拷贝文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp a.txt ./b.txt   <span class="comment">#将文件a.txt 复制到当前目录下 并改名为b.txt</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>open 命令</li>
 </ul>
@@ -1288,7 +1292,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/23/Python学习笔记-3-安装Pygame/" itemprop="url">Python学习笔记-3 安装Pygame</a></h1>
+                <a class="post-title-link" href="/2018/08/23/Python学习笔记-3-安装Pygame/" itemprop="url">Python学习笔记-3 使用pygame写小游戏</a></h1>
         
 
         <div class="post-meta">
@@ -1316,8 +1320,8 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-23T23:07:51+08:00">
-                2018-08-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-14T00:07:40+08:00">
+                2019-02-14
               </time>
             
           </span>
@@ -1340,7 +1344,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
 
           
           
-             <span id="/2018/08/23/Python学习笔记-3-安装Pygame/" class="leancloud_visitors" data-flag-title="Python学习笔记-3 安装Pygame">
+             <span id="/2018/08/23/Python学习笔记-3-安装Pygame/" class="leancloud_visitors" data-flag-title="Python学习笔记-3 使用pygame写小游戏">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1365,7 +1369,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  161
+                  500
                 </span>
               
 
@@ -1381,7 +1385,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -1418,6 +1422,14 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
 <p>目前卡在这一步， 不知道是什么问题。  应该是网速问题， 需要耐心等待。</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fuk1a2g0hjj30l203aab2.jpg" alt=""></p>
 <p>终于下载完成了。</p>
+<p>===</p>
+<h2 id="记录看书写代码时遇到一些记不住的函数"><a href="#记录看书写代码时遇到一些记不住的函数" class="headerlink" title="记录看书写代码时遇到一些记不住的函数"></a>记录看书写代码时遇到一些记不住的函数</h2><h3 id="sprite-精灵"><a href="#sprite-精灵" class="headerlink" title="sprite  精灵"></a>sprite  精灵</h3><p>使用<code>sprite.groupcollide()</code> 检测两个编组的成员之间的碰撞。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">collisions = pygame.sprite.groupcollide(bullets, aliens, <span class="keyword">True</span>, <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<p>方法<code>sprite.groupcollide()</code> 将每颗子弹的rect 同每个外星人的rect 进行比较，并返回一个字典，其中包含发生了碰撞的子弹和外星人。在这个字典中，每个键都是一颗子弹，而相应的值都是被击中的外星人.</p>
+<p>这行代码遍历编组bullets 中的每颗子弹，再遍历编组aliens 中的每个外星人。每当有子弹和外星人的rect 重叠时，<code>groupcollide()</code> 就在它返回的字典中添加一个键-值对。两个实参True 告诉Pygame删除发生碰撞的子弹和外星人。（要模拟能够穿行到屏幕顶端的高能子弹——消灭它击中的每个外星人，可将第一个布尔实参设置为False ，并让第二个布尔实参为True 。</p>
+<h3 id="spritecollideany"><a href="#spritecollideany" class="headerlink" title="spritecollideany()"></a>spritecollideany()</h3><p>方法<code>spritecollideany()</code> 接受两个实参：一个精灵和一个编组。它检查编组是否有成员与精灵发生了碰撞，并在找到与精灵发生了碰撞的成员后就停止遍历编组。</p>
+<p>如果没有发生碰撞，<code>spritecollideany()</code> 将返回None </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> pygame.sprite.spritecollideany(ship, aliens):</span><br><span class="line">	print(<span class="string">"Ship hit!!!"</span>)</span><br></pre></td></tr></table></figure>
 
           
         
@@ -3365,7 +3377,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
 </span>
 
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -3379,7 +3391,7 @@ x \prod_{i = 1} ^ n(1 - \frac{1}{p_i}) & x > 1 &\\
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.0k</span>
+    <span title="Site words total count">24.3k</span>
   
 </div>
 

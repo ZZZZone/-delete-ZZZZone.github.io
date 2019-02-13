@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[终端基本技巧学习]]></title>
     <url>%2F2018%2F12%2F05%2F2018-12-05%2F</url>
-    <content type="text"><![CDATA[终端修改文件名 1mv [旧文件名] [新文件名] open 命令 123open . # 打开当前目录open [路径]open [文件] vim比较文件 1vim -d filename1 filename2]]></content>
+    <content type="text"><![CDATA[终端修改文件名 1mv [旧文件名] [新文件名] cp 拷贝文件 1cp a.txt ./b.txt #将文件a.txt 复制到当前目录下 并改名为b.txt open 命令 123open . # 打开当前目录open [路径]open [文件] vim比较文件 1vim -d filename1 filename2]]></content>
       <categories>
         <category>随手笔记</category>
       </categories>
@@ -62,9 +62,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Python学习笔记-3 安装Pygame]]></title>
+    <title><![CDATA[Python学习笔记-3 使用pygame写小游戏]]></title>
     <url>%2F2018%2F08%2F23%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-3-%E5%AE%89%E8%A3%85Pygame%2F</url>
-    <content type="text"><![CDATA[第一步 首先检查电脑是否安装了pip.1pip --version 或者 1pip3 --version 出现以下字样则证明本机有pip 1pip 18.0 from /usr/local/lib/python3.6/site-packages/pip (python 3.6) 第二步 安装Pygame所需的依赖库《Python编程从入门到实践》外星人入侵所需要的库。 1brew install sdl smpeg sdl_image sdl_mixer sdl_ttf portmidi hg 高级功能， 让游戏中包含声音。 1brew install sdl_mixer portmidi 第三步 安装Pygame1pip3 install --user hg+https://bitbucket.org/pygame/pygame 目前卡在这一步， 不知道是什么问题。 应该是网速问题， 需要耐心等待。 终于下载完成了。]]></content>
+    <content type="text"><![CDATA[第一步 首先检查电脑是否安装了pip.1pip --version 或者 1pip3 --version 出现以下字样则证明本机有pip 1pip 18.0 from /usr/local/lib/python3.6/site-packages/pip (python 3.6) 第二步 安装Pygame所需的依赖库《Python编程从入门到实践》外星人入侵所需要的库。 1brew install sdl smpeg sdl_image sdl_mixer sdl_ttf portmidi hg 高级功能， 让游戏中包含声音。 1brew install sdl_mixer portmidi 第三步 安装Pygame1pip3 install --user hg+https://bitbucket.org/pygame/pygame 目前卡在这一步， 不知道是什么问题。 应该是网速问题， 需要耐心等待。 终于下载完成了。 === 记录看书写代码时遇到一些记不住的函数sprite 精灵使用sprite.groupcollide() 检测两个编组的成员之间的碰撞。 1collisions = pygame.sprite.groupcollide(bullets, aliens, True, True) 方法sprite.groupcollide() 将每颗子弹的rect 同每个外星人的rect 进行比较，并返回一个字典，其中包含发生了碰撞的子弹和外星人。在这个字典中，每个键都是一颗子弹，而相应的值都是被击中的外星人. 这行代码遍历编组bullets 中的每颗子弹，再遍历编组aliens 中的每个外星人。每当有子弹和外星人的rect 重叠时，groupcollide() 就在它返回的字典中添加一个键-值对。两个实参True 告诉Pygame删除发生碰撞的子弹和外星人。（要模拟能够穿行到屏幕顶端的高能子弹——消灭它击中的每个外星人，可将第一个布尔实参设置为False ，并让第二个布尔实参为True 。 spritecollideany()方法spritecollideany() 接受两个实参：一个精灵和一个编组。它检查编组是否有成员与精灵发生了碰撞，并在找到与精灵发生了碰撞的成员后就停止遍历编组。 如果没有发生碰撞，spritecollideany() 将返回None 12if pygame.sprite.spritecollideany(ship, aliens): print("Ship hit!!!")]]></content>
       <categories>
         <category>Python</category>
       </categories>
