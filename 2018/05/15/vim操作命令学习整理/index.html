@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="ZZZZone的博客">
 <meta property="og:description" content="日常记录容易忘记的Vim指令 首先是这两个符号： ^表示行的开头。 $表示行尾。  这样可以通过:num1,num2s/old/new/g的替换命令实现快速在多行行首和行尾插入。  比如在cpp文件中想在1到5行添加//进行注释， 那么命令就是  1:1,5s/^/\/\//g  因为\符号需要转义， 所以连个\\的注释需要写成\/\/.  当然我们也可以通过命令快速取消注释  1:1,5s/^\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T01:27:48.000Z">
+<meta property="og:updated_time" content="2019-04-11T13:40:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim操作命令学习整理">
 <meta name="twitter:description" content="日常记录容易忘记的Vim指令 首先是这两个符号： ^表示行的开头。 $表示行尾。  这样可以通过:num1,num2s/old/new/g的替换命令实现快速在多行行首和行尾插入。  比如在cpp文件中想在1到5行添加//进行注释， 那么命令就是  1:1,5s/^/\/\//g  因为\符号需要转义， 所以连个\\的注释需要写成\/\/.  当然我们也可以通过命令快速取消注释  1:1,5s/^\">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-16T09:27:48+08:00">
-                2018-05-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T21:40:05+08:00">
+                2019-04-11
               </time>
             
           </span>
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  253
+                  272
                 </span>
               
 
@@ -458,6 +458,10 @@
 </blockquote>
 <p> 取消选中行的注释</p>
  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="string">'&lt;,'</span>&gt;s/^\/\/</span><br></pre></td></tr></table></figure>
+<p>察看编码:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="builtin-name">set</span> fileencoding</span><br></pre></td></tr></table></figure>
+<p>设置编码为UTF-8:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="builtin-name">set</span> fileencoding＝utf-8</span><br></pre></td></tr></table></figure>
 <hr>
  <a id="more"></a>
 
@@ -737,7 +741,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.3k</span>
+    <span title="Site words total count">24.4k</span>
   
 </div>
 
